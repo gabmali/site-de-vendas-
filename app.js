@@ -6,7 +6,7 @@ const products = [
   { id: "esfoliante-vitamina-c", name: "Esfoliante Vitamina C", detail: "Derma Chem · 100 g", category: "skincare", priceCents: 1000, image: "0271d032cd8c1436.jpg", stock: "check" },
   { id: "perfume-capilar", name: "Perfume Capilar", detail: "Shine's Transcendent Pink e Bellinés Ray Flower · 30 ml cada", category: "fragrance", priceCents: 1000, image: "perfume-capilar-pink.jpg", gallery: ["perfume-capilar-pink.jpg", "perfume-capilar-ray.jpg"], stock: "check" },
   { id: "serum-abacate-pitaya", name: "Sérum Abacate e Pitaya", detail: "Mia Make · Skin Fruit · 30 ml", category: "skincare", priceCents: 1000, image: "serum-abacate-pitaya.jpg", imageFit: "contain", stock: "check" },
-  { id: "serum-rosa-mosqueta-max-love", name: "Sérum Rosa Mosqueta – Max Love", detail: "Max Love", category: "skincare", priceCents: 1000, image: null, stock: "check" },
+  { id: "serum-rosa-mosqueta-max-love", name: "Sérum Rosa Mosqueta – Max Love", detail: "Max Love Studio · 30 ml", category: "skincare", priceCents: 1000, image: "serum-rosa-mosqueta-max-love.jpg", imageFit: "contain", stock: "check" },
   { id: "serum-vitamina-c-max-love", name: "Sérum Vitamina C – Max Love", detail: "Max Love Studio · 30 ml", category: "skincare", priceCents: 1000, image: "eb59afe2e0fcc6d9.jpg", stock: "check" },
   { id: "presilhas-flor", name: "Presilhas Flor", detail: "Acessório de beleza · cores variadas", category: "accessories", priceCents: 700, image: "4324abe2eb9ba18f.jpg", stock: "check" },
   { id: "po-banana-fenzza", name: "Pó de Banana – Fenzza", detail: "Fenzza Make Up", category: "makeup", priceCents: 1000, image: "452e129b1e32e16a.jpg", stock: "check" },
@@ -401,6 +401,7 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 renderProducts();
 renderShowcase();
 renderCart();
+
 
 
 
