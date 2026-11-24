@@ -273,11 +273,29 @@ function showToast() {
 }
 
 function renderShowcase() {
-  const featured = products.filter((product) => product.image && product.stock !== "unavailable");
+  const featuredIds = [
+    "lip-gloss",
+    "perfume-capilar",
+    "serum-rosa-mosqueta-max-love",
+    "presilhas-flor",
+    "hidratante-vaquinha",
+    "body-splash-vaquinha",
+    "pure-seduction",
+    "amber-romance",
+    "bare-vanilla",
+    "love-spell",
+    "strawberry-champagne",
+    "kit-doce-de-leite-vaquinha",
+  ];
+  const featured = featuredIds.map((id) => products.find((product) => product.id === id)).filter((product) => product?.image && product.stock !== "unavailable");
+  featured.unshift(
+    { id: "kit-rotina-cuidados-rosto", target: "#kit-rotina-cuidados-rosto", name: "Kit Rotina de Cuidados com o Rosto", priceCents: 3400, image: "serum-rosa-mosqueta-max-love.jpg", imageFit: "contain" },
+    { id: "kit-beleza-perfume", target: "#kit-beleza-perfume", name: "Kit Beleza & Perfume", priceCents: 4200, image: "perfume-capilar-pink.jpg", imageFit: "contain" },
+  );
   const track = document.querySelector("#showcase-track");
   const viewport = document.querySelector("#showcase-viewport");
   const status = document.querySelector("#showcase-status");
-  track.innerHTML = featured.map((product) => `<a class="showcase-card" href="#product-${product.id}" aria-label="Ver ${product.name} no catálogo">
+  track.innerHTML = featured.map((product) => `<a class="showcase-card" href="${product.target || `#product-${product.id}`}" aria-label="Ver ${product.name} no catálogo">
     <div class="showcase-photo">${imageMarkup(product)}</div>
     <span class="showcase-card-name">${product.name}</span>
     <strong>${formatPrice(product.priceCents)}</strong>
