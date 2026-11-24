@@ -96,8 +96,9 @@ h1, h2, h3, p { margin-top: 0; }
 .product-image-wrap:has(img.product-image-contain),
 .showcase-photo:has(img.product-image-contain) { background: linear-gradient(145deg, #f8e1d8, #fff7ee 55%, #efd0bf); }
 .product-image-wrap img.product-image-contain,
-.showcase-photo img.product-image-contain { object-fit: contain; padding: 10px; background: transparent; }
+.showcase-photo img.product-image-contain { object-fit: contain; object-position: center; padding: 8px; background: transparent; transform: none; }
 .product-card:hover .product-image-wrap img { transform: scale(1.035); }
+.product-card:hover .product-image-wrap img.product-image-contain { transform: none; }
 .photo-heart { position: absolute; top: 11px; right: 12px; display: grid; width: 27px; height: 27px; place-items: center; border-radius: 50%; color: #9d4c65; background: rgba(255,255,255,.85); font-size: 16px; }
 .product-info { padding: 15px 15px 14px; }
 .product-status { min-height: 15px; }
