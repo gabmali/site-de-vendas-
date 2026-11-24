@@ -89,9 +89,15 @@ function productCard(product) {
       ? '<span class="stock-badge unavailable"><i></i> Indisponível</span>'
       : '<span class="stock-badge check-stock"><i></i> Consulte disponibilidade</span>';
 
-  return `<article class="product-card" id="product-${product.id}" data-product-id="${product.id}">
+  const imageContent = product.gallery?.length > 1
+    ? `<img class="product-image-contain" src="assets/instagram/${product.gallery[0]}" alt="Perfume capilar Transcendent Pink" loading="lazy" data-gallery-image />
+      <span class="gallery-caption" data-gallery-caption>Transcendent Pink · 1 de 2</span>
+      <button class="gallery-next" type="button" data-gallery-next aria-label="Ver o próximo perfume capilar">›</button>`
+    : imageMarkup(product);
+
+  return `<article class="product-card" id="product-${product.id}" data-product-id="${product.id}"${product.gallery?.length > 1 ? ` data-gallery='${JSON.stringify(product.gallery)}'` : ""}>
     <div class="product-image-wrap">
-      ${imageMarkup(product)}
+      ${imageContent}
       <span class="photo-heart" aria-hidden="true">♡</span>
     </div>
     <div class="product-info">
@@ -312,6 +318,20 @@ document.querySelector("#category-filters").addEventListener("click", (event) =>
 });
 
 grid.addEventListener("click", (event) => {
+  const galleryButton = event.target.closest("[data-gallery-next]");
+  if (galleryButton) {
+    const card = galleryButton.closest("[data-gallery]");
+    const images = JSON.parse(card.dataset.gallery);
+    const image = card.querySelector("[data-gallery-image]");
+    const caption = card.querySelector("[data-gallery-caption]");
+    const next = (Number(card.dataset.galleryIndex || 0) + 1) % images.length;
+    const labels = ["Transcendent Pink", "Ray Flower"];
+    card.dataset.galleryIndex = next;
+    image.src = `assets/instagram/${images[next]}`;
+    image.alt = `Perfume capilar ${labels[next]}`;
+    caption.textContent = `${labels[next]} · ${next + 1} de ${images.length}`;
+    return;
+  }
   const button = event.target.closest("[data-add-to-cart]");
   if (!button || button.disabled) return;
   const id = button.dataset.addToCart;
