@@ -333,6 +333,9 @@ body.cart-open { overflow: hidden; }
 .special-kit-card:nth-child(2) .special-kit-products { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .special-kit-products > div { min-width: 0; color: #71545f; font-size: 9px; line-height: 1.35; text-align: center; }
 .special-kit-products img { display: block; width: 100%; aspect-ratio: 1; margin-bottom: 7px; border: 1px solid #f0e4e7; background: #fbe5ed; object-fit: cover; }
+.special-kit-composite-wrap { position: relative; overflow: hidden; aspect-ratio: 2 / 1; border: 1px solid #f0dfe4; background: #f9dbe6; }
+.special-kit-composite { display: block; width: 100%; height: 100%; object-fit: contain; }
+.special-kit-composite-wrap > span { position: absolute; right: 10px; bottom: 10px; padding: 6px 10px; border: 1px solid rgba(255,255,255,.75); border-radius: 20px; color: #71364a; background: rgba(255,255,255,.92); font-size: 9px; font-weight: 700; }
 .special-kit-description { margin: 17px 0 13px; color: #79666d; font-size: 10px; line-height: 1.75; }
 .special-kit-list { display: grid; gap: 7px; margin: 0; padding: 12px 0; border-top: 1px solid #f0dfe4; border-bottom: 1px solid #f0dfe4; list-style: none; }
 .special-kit-list li { display: flex; justify-content: space-between; gap: 10px; color: #69505a; font-size: 10px; }
