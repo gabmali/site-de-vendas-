@@ -4,29 +4,29 @@ const products = [
   { id: "lip-gloss", name: "Lip Gloss", detail: "Viva! · SOS Beijo · volume labial", category: "makeup", priceCents: 1200, image: "dccf3be0886ebff0.jpg", stock: "check" },
   { id: "lip-gloss-teddy", name: "Lip Gloss Teddy", detail: "Melu · 3 ml", category: "makeup", priceCents: 1200, image: "85d38dfc82278184.jpg", stock: "check" },
   { id: "esfoliante-vitamina-c", name: "Esfoliante Vitamina C", detail: "Derma Chem · 100 g", category: "skincare", priceCents: 1000, image: "0271d032cd8c1436.jpg", stock: "check" },
-  { id: "perfume-capilar", name: "Perfume Capilar", detail: "", category: "fragrance", priceCents: 1000, image: null, stock: "check" },
-  { id: "serum-abacate-pitaya", name: "Sérum Abacate e Pitaya", detail: "", category: "skincare", priceCents: 1000, image: null, stock: "check" },
+  { id: "perfume-capilar", name: "Perfume Capilar", detail: "Shine's Transcendent Pink e Bellinés Ray Flower · 30 ml cada", category: "fragrance", priceCents: 1000, image: "perfume-capilar-pink.jpg", gallery: ["perfume-capilar-pink.jpg", "perfume-capilar-ray.jpg"], stock: "check" },
+  { id: "serum-abacate-pitaya", name: "Sérum Abacate e Pitaya", detail: "Mia Make · Skin Fruit · 30 ml", category: "skincare", priceCents: 1000, image: "serum-abacate-pitaya.jpg", imageFit: "contain", stock: "check" },
   { id: "serum-rosa-mosqueta-max-love", name: "Sérum Rosa Mosqueta – Max Love", detail: "Max Love", category: "skincare", priceCents: 1000, image: null, stock: "check" },
   { id: "serum-vitamina-c-max-love", name: "Sérum Vitamina C – Max Love", detail: "Max Love Studio · 30 ml", category: "skincare", priceCents: 1000, image: "eb59afe2e0fcc6d9.jpg", stock: "check" },
   { id: "presilhas-flor", name: "Presilhas Flor", detail: "Acessório de beleza · cores variadas", category: "accessories", priceCents: 700, image: "4324abe2eb9ba18f.jpg", stock: "check" },
   { id: "po-banana-fenzza", name: "Pó de Banana – Fenzza", detail: "Fenzza Make Up", category: "makeup", priceCents: 1000, image: "452e129b1e32e16a.jpg", stock: "check" },
   { id: "gloss-lip-oil", name: "Gloss Lip Oil", detail: "", category: "makeup", priceCents: 1000, image: null, stock: "check" },
-  { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "", category: "skincare", priceCents: 1000, image: null, stock: "check" },
-  { id: "esfoliante-corporal", name: "Esfoliante Corporal", detail: "", category: "skincare", priceCents: 1000, image: null, stock: "check" },
-  { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "", category: "fragrance", priceCents: 1000, image: null, stock: "check" },
+  { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "Bell Corpus · 250 ml", category: "skincare", priceCents: 1000, image: "hidratante-vaquinha.jpg", imageFit: "contain", stock: "check" },
+  { id: "esfoliante-corporal", name: "Esfoliante Corporal", detail: "S.Hine's · Sunset Coral · 220 g", category: "skincare", priceCents: 1000, image: "esfoliante-corporal-sunset-coral.jpg", imageFit: "contain", stock: "check" },
+  { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml", category: "fragrance", priceCents: 1000, image: "body-splash-vaquinha.jpg", imageFit: "contain", stock: "check" },
   { id: "mousse-facial-manga-rosa", name: "Mousse Facial Manga Rosa", detail: "Pudim Super Poderes · extrato de manga rosa e água de coco · 150 ml", category: "skincare", priceCents: 1400, image: "22aa44565b6ac927.jpg", stock: "check" },
-  { id: "lamina", name: "Lâmina", detail: "", category: "accessories", priceCents: 1000, image: null, stock: "check" },
+  { id: "lamina", name: "Lâmina", detail: "Aparelho para sobrancelhas · kit com 3", category: "accessories", priceCents: 1000, image: "lamina-sobrancelha.jpg", stock: "check" },
   { id: "bronzer-choco-fun", name: "Bronzer Choco Fun", detail: "Fenzza · acabamento bronze", category: "makeup", priceCents: 1000, image: "25288545ae87c896.jpg", stock: "check" },
   { id: "esfoliante-labial", name: "Esfoliante Labial", detail: "We Candy · lip scrub", category: "skincare", priceCents: 700, image: "f9afb6f455f979c0.jpg", stock: "check" },
-  { id: "bruma-fixadora", name: "Bruma Fixadora", detail: "", category: "makeup", priceCents: 1000, image: null, stock: "check" },
+  { id: "bruma-fixadora", name: "Bruma Fixadora", detail: "Lady Beauty · Skin Pro Matte · 130 ml", category: "makeup", priceCents: 1000, image: "bruma-fixadora.jpg", stock: "check" },
   { id: "esfoliante-acido-salicilico", name: "Esfoliante Ácido Salicílico", detail: "Derma Chem · pele oleosa e acneica", category: "skincare", priceCents: 1000, image: "5ce38450d3b52779.jpg", stock: "check" },
-  { id: "esfoliante-body-juice-cereja", name: "Esfoliante Body Juice – Cereja", detail: "", category: "skincare", priceCents: 1500, image: null, stock: "check" },
-  { id: "pure-seduction", name: "Inspiração Victoria's Secret – Pure Seduction", detail: "Fragrância inspirada", category: "fragrance", priceCents: 3000, image: null, stock: "check" },
+  { id: "esfoliante-body-juice-cereja", name: "Esfoliante Body Juice – Cereja", detail: "Derma Chem · 100 g", category: "skincare", priceCents: 1500, image: "esfoliante-body-juice-cereja.jpg", imageFit: "contain", stock: "check" },
+  { id: "pure-seduction", name: "Inspiração Victoria's Secret – Pure Seduction", detail: "Loção perfumada · Pure Seduction · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-pure-seduction.jpg", imageFit: "contain", stock: "check" },
   { id: "amber-romance", name: "Inspiração Victoria's Secret – Amber Romance", detail: "Loção perfumada · Amber Romance · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-amber-romance.jpg", imageFit: "contain", stock: "check" },
   { id: "bare-vanilla", name: "Inspiração Victoria's Secret – Bare Vanilla", detail: "Loção perfumada · Bare Vanilla · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-bare-vanilla.jpg", imageFit: "contain", stock: "check" },
   { id: "love-spell", name: "Inspiração Victoria's Secret – Love Spell", detail: "Loção perfumada · Love Spell · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-love-spell.jpg", imageFit: "contain", stock: "check" },
   { id: "strawberry-champagne", name: "Inspiração Victoria's Secret – Strawberry e Champagne", detail: "Strawberries & Champagne · loção perfumada · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-strawberries-champagne.jpg", imageFit: "contain", stock: "check" },
-  { id: "kit-doce-de-leite-vaquinha", name: "Kit Doce de Leite – Vaquinha", detail: "", category: "kits", priceCents: 3600, image: null, stock: "check" },
+  { id: "kit-doce-de-leite-vaquinha", name: "Kit Doce de Leite – Vaquinha", detail: "Sabonete, esfoliante e hidratante corporal", category: "kits", priceCents: 3600, image: "kit-doce-de-leite.jpg", imageFit: "contain", stock: "check" },
 
   // Item da versão anterior mantido como produto adicional, com valor confirmado.
   { id: "agua-micelar-max-love", name: "Água Micelar – Max Love", detail: "Rosa Mosqueta, Antioxidante ou Carvão", category: "skincare", priceCents: 1000, image: "c03005882eb6e830.jpg", stock: "check" },
@@ -401,3 +401,6 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 renderProducts();
 renderShowcase();
 renderCart();
+
+
+
