@@ -10,7 +10,7 @@ const products = [
   { id: "serum-vitamina-c-max-love", name: "Sérum Vitamina C – Max Love", detail: "Max Love Studio · 30 ml", category: "skincare", priceCents: 1000, image: "eb59afe2e0fcc6d9.jpg", stock: "check" },
   { id: "presilhas-flor", name: "Presilhas Flor", detail: "Acessório de beleza · cores variadas", category: "accessories", priceCents: 700, image: "4324abe2eb9ba18f.jpg", stock: "check" },
   { id: "po-banana-fenzza", name: "Pó de Banana – Fenzza", detail: "Fenzza Make Up", category: "makeup", priceCents: 1000, image: "452e129b1e32e16a.jpg", stock: "check" },
-  { id: "gloss-lip-oil", name: "Gloss Lip Oil", detail: "", category: "makeup", priceCents: 1000, image: null, stock: "check" },
+  { id: "gloss-lip-oil", name: "Gloss Lip Oil", detail: "Vivat · hidratante labial · cores variadas", category: "makeup", priceCents: 1000, image: "gloss-lip-oil.jpg", imageFit: "contain", stock: "check" },
   { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "Bell Corpus · 250 ml", category: "skincare", priceCents: 1000, image: "hidratante-vaquinha.jpg", imageFit: "contain", stock: "check" },
   { id: "esfoliante-corporal", name: "Esfoliante Corporal", detail: "S.Hine's · Sunset Coral · 220 g", category: "skincare", priceCents: 1000, image: "esfoliante-corporal-sunset-coral.jpg", imageFit: "contain", stock: "check" },
   { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml", category: "fragrance", priceCents: 1000, image: "body-splash-vaquinha.jpg", imageFit: "contain", stock: "check" },
@@ -401,6 +401,7 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 renderProducts();
 renderShowcase();
 renderCart();
+
 
 
 
