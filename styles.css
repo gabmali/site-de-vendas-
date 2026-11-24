@@ -318,3 +318,5 @@ body.cart-open { overflow: hidden; }
   .cart-toast { right: 10px; bottom: 10px; left: 10px; justify-content: space-between; }
 }
 
+
+.product-image-wrap img[data-gallery-image] { padding: 22px; }
