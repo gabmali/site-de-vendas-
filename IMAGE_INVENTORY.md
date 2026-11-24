@@ -41,9 +41,13 @@ Referência criada em 24/11/2026 antes das alterações do catálogo.
 
 | Arquivo derivado | Produto | SHA-256 |
 |---|---|---|
-| `vs-amber-romance.jpg` | Inspiração Victoria's Secret – Amber Romance | `F2E97C10F8FA3033E013245AF5C8F75606F992B9540BC85AB50C3CEAC9B422CB` |
-| `vs-bare-vanilla.jpg` | Inspiração Victoria's Secret – Bare Vanilla | `E300E5BBF90C941F03860F7789E353AD4D6C87F24EEC805B55DD9932C8B7122B` |
-| `vs-love-spell.jpg` | Inspiração Victoria's Secret – Love Spell | `4947132C4AEF89DC4840326DA391A56922326FE89B106F0250E3D4731BEFBA86` |
-| `vs-strawberries-champagne.jpg` | Inspiração Victoria's Secret – Strawberries & Champagne | `577C1D145B146372D02AB968699A3EB772CDF884E914EEAECAC302756BFAB446` |
+| `vs-amber-romance.jpg` | Inspiração Victoria's Secret – Amber Romance | `D33DCD978DA0A75BD530E9220209361D21A4D955D2E0E2BCCDACC29B9864D9A5` |
+| `vs-bare-vanilla.jpg` | Inspiração Victoria's Secret – Bare Vanilla | `BABE2EED664F9E7EA8A1A59983C285429C264246F41BF6689F09F8C3DF18298C` |
+$174C0A6BD1C047C90E31D789343B28AA23ECF29734F84FA139393DB3B81CC291B` |
+$15CB183E08FA059E211FD850ABA8D6F4C8381C982BDCEDCEEAC9AE0C73AC6F650` |
 
 - As imagens ausentes continuam com espaço reservado. Os quatro recortes foram confirmados pela responsável da loja.
+
+
+- Em 24/11/2026, as fotos dos cinco cremes Victoria’s Secret foram atualizadas para versões com fundo rosa fornecidas pela loja; os arquivos atuais e seus hashes refletem essas versões.
+
