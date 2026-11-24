@@ -354,3 +354,38 @@ body.cart-open { overflow: hidden; }
   .special-kit-products > div { font-size: 8px; }
   .special-kit-footer .button { padding: 0 10px; font-size: 9px; }
 }
+
+/* Janela de detalhes: mantém a paleta e as fontes da loja. */
+.product-title-button { padding: 0; border: 0; color: inherit; background: none; cursor: pointer; font: inherit; line-height: inherit; text-align: left; }
+.product-title-button:hover, .product-detail-trigger:hover { color: #a33559; }
+.product-image-wrap img[data-view-product], .product-image-wrap [data-view-product][role="button"] { cursor: pointer; }
+.product-detail-trigger { margin-top: 7px; padding: 0; border: 0; color: #9f536a; background: transparent; cursor: pointer; font: inherit; font-size: 9px; text-decoration: underline; }
+.product-modal-dialog { position: fixed; width: min(900px, calc(100vw - 36px)); max-width: none; max-height: calc(100vh - 36px); overflow: auto; padding: 0; border: 1px solid #efd9e1; border-radius: 8px; color: #62454f; background: #fffafb; box-shadow: 0 25px 80px rgba(64,25,40,.25); }
+.product-modal-dialog::backdrop { background: rgba(55,25,37,.56); backdrop-filter: blur(3px); }
+.product-modal-close { position: sticky; z-index: 2; top: 12px; float: right; display: grid; width: 36px; height: 36px; place-items: center; margin: 12px 12px -48px 0; border: 1px solid #eddce2; border-radius: 50%; color: #8e5367; background: #fff; cursor: pointer; font-size: 24px; }
+.product-modal-layout { display: grid; grid-template-columns: minmax(230px, .8fr) minmax(0, 1.2fr); gap: 28px; padding: 28px; }
+.product-modal-visual { min-height: 300px; overflow: hidden; align-self: start; border: 1px solid #f0dfe4; border-radius: 5px; background: #f8d7e1; }
+.product-modal-image { display: block; width: 100%; max-height: 560px; aspect-ratio: 4 / 5; object-fit: cover; }
+.product-modal-image.product-image-contain { object-fit: contain; }
+.product-modal-placeholder { display: grid; min-height: 300px; place-items: center; color: #b7657f; font-size: 70px; }
+.product-modal-info { padding: 8px 4px 0 0; }
+.product-modal-info .eyebrow { margin: 0 0 8px; }
+.product-modal-info h2 { margin: 0; color: #4b343c; font-family: var(--serif); font-size: clamp(25px, 4vw, 36px); font-weight: 500; line-height: 1.2; }
+.product-modal-price { margin: 9px 0 17px; color: #a33559; font-size: 22px; font-weight: 700; }
+.product-modal-facts { display: grid; gap: 11px; margin: 0; }
+.product-modal-facts > div { padding-bottom: 9px; border-bottom: 1px solid #f0e3e7; }
+.product-modal-facts dt { margin-bottom: 3px; color: #704652; font-size: 11px; font-weight: 700; }
+.product-modal-facts dd { margin: 0; color: #85717a; font-size: 10px; line-height: 1.55; }
+.product-modal-actions { display: grid; gap: 10px; margin-top: 19px; }
+.product-modal-actions .button { justify-content: center; min-height: 44px; font-size: 10px; }
+.product-modal-continue { min-height: 38px; border: 1px solid #e5c2cc; border-radius: 3px; color: #99506a; background: white; cursor: pointer; font-size: 10px; font-weight: 700; }
+@media (max-width: 640px) {
+  .product-modal-dialog { width: calc(100vw - 20px); max-height: calc(100vh - 20px); }
+  .product-modal-layout { grid-template-columns: 1fr; gap: 15px; padding: 15px; }
+  .product-modal-visual { min-height: 0; max-height: 37vh; }
+  .product-modal-image { width: 100%; height: min(37vh, 310px); aspect-ratio: auto; object-fit: contain; }
+  .product-modal-info { padding-right: 0; }
+  .product-modal-price { margin-bottom: 12px; }
+  .product-modal-facts { gap: 8px; }
+  .product-modal-facts > div { padding-bottom: 7px; }
+}

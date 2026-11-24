@@ -64,6 +64,9 @@ const stationWrap = document.querySelector("#station-wrap");
 const stationDetails = document.querySelector("#station-details");
 const checkoutValidation = document.querySelector("#checkout-validation");
 const toast = document.querySelector("#cart-toast");
+const productDialog = document.querySelector("#product-dialog");
+const productDialogContent = document.querySelector("#product-dialog-content");
+let lastProductTrigger = null;
 const cart = loadCart();
 let activeCategory = "all";
 let toastTimer;
@@ -75,9 +78,9 @@ function formatPrice(priceCents) {
 function imageMarkup(product, className = "") {
   if (product.image) {
     const imageFit = product.imageFit === "contain" ? " product-image-contain" : "";
-    return `<img class="${className}${imageFit}" src="assets/instagram/${product.image}" alt="${product.name}" loading="lazy" />`;
+    return `<img class="${className}${imageFit}" src="assets/instagram/${product.image}" alt="${product.name}" loading="lazy" data-view-product="${product.id}" role="button" tabindex="0" aria-label="Ver detalhes de ${product.name}" />`;
   }
-  return `<div class="product-image-placeholder ${className}" role="img" aria-label="Foto de ${product.name} em breve"><span aria-hidden="true">♡</span><small>Foto em breve</small></div>`;
+  return `<div class="product-image-placeholder ${className}" role="button" tabindex="0" data-view-product="${product.id}" aria-label="Ver detalhes de ${product.name}"><span aria-hidden="true">♡</span><small>Foto em breve</small></div>`;
 }
 
 function productCard(product) {
@@ -90,7 +93,7 @@ function productCard(product) {
       : '<span class="stock-badge check-stock"><i></i> Consulte disponibilidade</span>';
 
   const imageContent = product.gallery?.length > 1
-    ? `<img class="product-image-contain" src="assets/instagram/${product.gallery[0]}" alt="Perfume capilar Transcendent Pink" loading="lazy" data-gallery-image />
+    ? `<img class="product-image-contain" src="assets/instagram/${product.gallery[0]}" alt="Perfume capilar Transcendent Pink" loading="lazy" data-gallery-image data-view-product="${product.id}" role="button" tabindex="0" aria-label="Ver detalhes de ${product.name}" />
       <span class="gallery-caption" data-gallery-caption>Transcendent Pink · 1 de 2</span>
       <button class="gallery-next" type="button" data-gallery-next aria-label="Ver o próximo perfume capilar">›</button>`
     : imageMarkup(product);
@@ -102,15 +105,70 @@ function productCard(product) {
     </div>
     <div class="product-info">
       <div class="product-status">${badge}<span class="category-tag">${categoryNames[product.category]}</span></div>
-      <h3>${product.name}</h3>
+      <h3><button class="product-title-button" type="button" data-view-product="${product.id}">${product.name}</button></h3>
       <p class="product-price">${formatPrice(product.priceCents)}</p>
       ${product.detail ? `<p class="product-detail">${product.detail}</p>` : '<p class="product-detail product-detail-empty" aria-hidden="true"></p>'}
+      <button class="product-detail-trigger" type="button" data-view-product="${product.id}">Ver detalhes <span aria-hidden="true">＋</span></button>
       <div class="product-purchase">
         <button class="add-to-cart" type="button" data-add-to-cart="${product.id}" ${product.stock === "unavailable" ? "disabled" : ""}>Adicionar ao carrinho <span aria-hidden="true">＋</span></button>
         <a class="product-cta" href="${href}" target="_blank" rel="noreferrer">Quero esse produto <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </article>`;
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character]));
+}
+
+function productUseContext(product) {
+  if (product.id === "perfume-capilar") return "Perfume destinado aos cabelos, conforme identificação do produto.";
+  if (product.category === "fragrance") return "Produto de perfumação, conforme a descrição cadastrada.";
+  if (product.category === "makeup") return "Produto de maquiagem, conforme a categoria cadastrada.";
+  if (product.category === "skincare") return "Produto de cuidados com a pele, conforme a categoria cadastrada.";
+  if (product.category === "accessories") return "Acessório de beleza, conforme a descrição cadastrada.";
+  if (product.category === "kits") return "Kit de cuidados corporais, conforme os itens informados no cadastro.";
+  return "Finalidade específica aguardando confirmação do fabricante.";
+}
+
+function productVolume(product) {
+  const match = product.detail.match(/\b\d+(?:[,.]\d+)?\s?(?:ml|g|kg|l|unidades?)\b/i);
+  return match ? match[0] : "Não informado no cadastro";
+}
+
+function openProductDetails(product, trigger) {
+  if (!product) return;
+  lastProductTrigger = trigger;
+  const price = formatPrice(product.priceCents);
+  const description = product.detail
+    ? `${product.name} · ${product.detail}. Informações complementares do fabricante ainda não foram fornecidas.`
+    : `${product.name}. Descrição detalhada aguardando informações do fabricante.`;
+  const message = `Olá! Gostaria de comprar o produto ${product.name} no valor de ${price}. Ele está disponível?`;
+  const image = product.image
+    ? `<img class="product-modal-image${product.imageFit === "contain" ? " product-image-contain" : ""}" src="assets/instagram/${escapeHtml(product.gallery?.[0] || product.image)}" alt="${escapeHtml(product.name)}" />`
+    : '<div class="product-modal-placeholder" aria-hidden="true">♡</div>';
+  productDialogContent.innerHTML = `<div class="product-modal-layout">
+    <div class="product-modal-visual">${image}</div>
+    <div class="product-modal-info">
+      <p class="eyebrow">DETALHES DO PRODUTO</p>
+      <h2 id="product-dialog-title">${escapeHtml(product.name)}</h2>
+      <p class="product-modal-price">${price}</p>
+      <dl class="product-modal-facts">
+        <div><dt>Descrição</dt><dd>${escapeHtml(description)}</dd></div>
+        <div><dt>Para que serve</dt><dd>${escapeHtml(productUseContext(product))}</dd></div>
+        <div><dt>Benefícios</dt><dd>Não informados pelo fabricante no cadastro atual.</dd></div>
+        <div><dt>Indicação</dt><dd>Necessidade específica aguardando confirmação do fabricante.</dd></div>
+        <div><dt>Como utilizar</dt><dd>Siga as instruções do rótulo. As instruções específicas ainda não foram cadastradas.</dd></div>
+        <div><dt>Cuidados e recomendações</dt><dd>Consulte o rótulo e as recomendações do fabricante antes do uso.</dd></div>
+        <div><dt>Quantidade ou volume</dt><dd>${escapeHtml(productVolume(product))}</dd></div>
+      </dl>
+      <div class="product-modal-actions">
+        <a class="button button-primary" href="https://wa.me/${phone}?text=${encodeURIComponent(message)}" target="_blank" rel="noreferrer">QUERO COMPRAR ESSE PRODUTO <span aria-hidden="true">↗</span></a>
+        <button class="product-modal-continue" type="button" data-close-product-dialog>Voltar à loja</button>
+      </div>
+    </div>
+  </div>`;
+  productDialog.showModal();
 }
 
 function normalizeText(value) {
@@ -322,6 +380,15 @@ function renderShowcase() {
   viewport.addEventListener("scroll", updateStatus, { passive: true });
   window.addEventListener("resize", updateStatus);
   updateStatus();
+  track.addEventListener("click", (event) => {
+    if (event.target.closest("[data-view-product]")) return;
+    const card = event.target.closest("a.showcase-card");
+    if (!card || card.hasAttribute("data-target")) return;
+    const product = featured.find((item) => card.getAttribute("href") === `#product-${item.id}`);
+    if (!product) return;
+    event.preventDefault();
+    openProductDetails(product, card);
+  });
 }
 
 search.addEventListener("input", (event) => renderProducts(event.target.value));
@@ -363,6 +430,29 @@ grid.addEventListener("click", (event) => {
     button.innerHTML = 'Adicionar ao carrinho <span aria-hidden="true">＋</span>';
     button.classList.remove("is-added");
   }, 1100);
+});
+
+document.addEventListener("click", (event) => {
+  const trigger = event.target.closest("[data-view-product]");
+  if (!trigger) return;
+  const product = products.find((item) => item.id === trigger.dataset.viewProduct);
+  if (!product) return;
+  event.preventDefault();
+  openProductDetails(product, trigger);
+});
+
+document.addEventListener("keydown", (event) => {
+  const trigger = event.target.closest?.('[data-view-product][role="button"]');
+  if (!trigger || !["Enter", " "].includes(event.key)) return;
+  event.preventDefault();
+  openProductDetails(products.find((item) => item.id === trigger.dataset.viewProduct), trigger);
+});
+
+productDialog.addEventListener("click", (event) => {
+  if (event.target === productDialog || event.target.closest("[data-close-product-dialog]")) productDialog.close();
+});
+productDialog.addEventListener("close", () => {
+  if (lastProductTrigger?.isConnected) lastProductTrigger.focus();
 });
 
 cartToggle.addEventListener("click", openCart);
