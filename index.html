@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fff7f8" />
-    <meta name="description" content="Conheça o catálogo Clarysse Makes: maquiagem, cuidados e beleza. Peça pelo WhatsApp." />
+    <meta name="description" content="Conheça o catálogo Clarysse Makes: maquiagem, cuidados e beleza. Escolha seus produtos e finalize pelo WhatsApp." />
     <title>Clarysse Makes — beleza do seu jeito</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +22,7 @@
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <a href="#catalogo">Catálogo</a>
+        <a href="#entrega">Entrega e retirada</a>
         <a href="#sobre">Sobre a loja</a>
       </nav>
       <button class="cart-toggle" id="cart-toggle" type="button" aria-label="Abrir carrinho com 0 itens" aria-expanded="false" aria-controls="cart-backdrop">
@@ -29,7 +30,7 @@
         <span>Carrinho</span><b id="cart-count" aria-live="polite">0</b>
       </button>
       <a class="header-cta" href="https://wa.me/5511952733132" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4ZM12.1 21.7a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.3-.4a9.8 9.8 0 1 1 8.5 4.7Zm5.4-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2l-.9 1.1c-.2.2-.4.2-.7.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.3 1 2.6 1.1 2.8c.1.2 2 3 4.8 4.1.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.6 6L0 24l6.4-1.7a11.8 11.8 0 0 0 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4Z"/></svg>
         <span>Fale com a gente</span>
       </a>
     </header>
@@ -47,15 +48,20 @@
               Conheça nosso Instagram
             </a>
           </div>
-          <div class="hero-note"><span class="note-heart">♡</span><span>Encontre seu próximo favorito<br /><small>Atendimento carinhoso pelo WhatsApp</small></span></div>
+          <div class="hero-note"><span class="note-heart">♡</span><span>Atendimento próximo e carinhoso<br /><small>Seu pedido é confirmado pelo WhatsApp</small></span></div>
         </div>
-        <div class="hero-art" aria-label="Produtos de beleza Clarysse Makes">
-          <div class="hero-halo"></div>
-          <div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div><div class="sparkle sparkle-three">✦</div>
-          <div class="hero-photo hero-photo-back"><img src="assets/instagram/25288545ae87c896.jpg" alt="Bronzer compacto Choco Fun" /></div>
-          <div class="hero-photo hero-photo-main"><img src="assets/instagram/22aa44565b6ac927.jpg" alt="Mousse facial de manga e água de coco" /></div>
-          <div class="photo-caption"><span>beleza para</span><strong>florescer</strong></div>
-          <div class="hero-seal"><span>feito com</span><strong>♥</strong><span>carinho</span></div>
+        <div class="hero-showcase" aria-label="Vitrine de produtos em destaque">
+          <div class="showcase-heading">
+            <div><p class="eyebrow"><span>✦</span> ESCOLHIDOS PARA VOCÊ</p><h2>Favoritos da <em>loja</em></h2></div>
+            <div class="showcase-controls">
+              <button id="showcase-prev" type="button" aria-label="Ver produtos anteriores">‹</button>
+              <button id="showcase-next" type="button" aria-label="Ver próximos produtos">›</button>
+            </div>
+          </div>
+          <div class="showcase-viewport" id="showcase-viewport" tabindex="0" role="region" aria-label="Carrossel de produtos; use as setas ou deslize">
+            <div class="showcase-track" id="showcase-track"></div>
+          </div>
+          <p class="showcase-hint" id="showcase-status" aria-live="polite">Deslize para conhecer os produtos</p>
         </div>
         <div class="hero-bottomline"><span>CLARYSSE MAKES</span><span>BELEZA QUE ACOLHE</span><span>♡</span></div>
       </section>
@@ -63,10 +69,10 @@
       <section class="catalog section-wrap" id="catalogo">
         <div class="section-heading">
           <div><p class="eyebrow"><span>✦</span> UM MUNDO DE AUTOCUIDADO</p><h2>Escolha o seu <em>favorito</em></h2></div>
-          <p class="catalog-intro">Uma seleção de makes e cuidados que amamos. Toque no produto para pedir informações pelo WhatsApp.</p>
+          <p class="catalog-intro">Veja os preços, encontre seu produto e monte o pedido no carrinho. A confirmação é feita pelo WhatsApp.</p>
         </div>
         <div class="catalog-tools">
-          <p><span id="product-count">12</span> produtos em destaque</p>
+          <p><span id="product-count">0</span> produtos</p>
           <label class="search-box">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
             <span class="sr-only">Buscar produtos</span>
@@ -74,9 +80,29 @@
             <kbd>/</kbd>
           </label>
         </div>
+        <div class="category-filters" id="category-filters" role="group" aria-label="Filtrar por categoria">
+          <button type="button" data-category="all" aria-pressed="true">Todos</button>
+          <button type="button" data-category="makeup" aria-pressed="false">Maquiagem</button>
+          <button type="button" data-category="skincare" aria-pressed="false">Skincare e cuidados</button>
+          <button type="button" data-category="fragrance" aria-pressed="false">Perfumes e fragrâncias</button>
+          <button type="button" data-category="accessories" aria-pressed="false">Acessórios</button>
+          <button type="button" data-category="kits" aria-pressed="false">Kits</button>
+        </div>
         <div class="product-grid" id="product-grid" aria-live="polite"></div>
         <div class="empty-state" id="empty-state" hidden>Não encontramos esse produto. Tente outra busca. <span>♡</span></div>
-        <p class="stock-note"><span>♡</span> Valores e disponibilidade são confirmados no atendimento. Chame a gente para consultar seu produto.</p>
+        <p class="stock-note"><span>♡</span> Consulte a disponibilidade pelo WhatsApp. O frete, quando houver, é combinado à parte.</p>
+      </section>
+
+      <section class="delivery-section section-wrap" id="entrega">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span>✦</span> RECEBA DO SEU JEITO</p><h2>Entrega e <em>retirada</em></h2></div>
+          <p class="catalog-intro">Atendemos Barueri, Carapicuíba, Osasco e Jandira. Consulte a disponibilidade pelo WhatsApp.</p>
+        </div>
+        <div class="delivery-grid">
+          <article><span class="delivery-icon">↗</span><h3>Entrega por motoboy</h3><p>Disponibilidade e valor do motoboy são combinados pelo WhatsApp. Informe seu endereço no pedido.</p></article>
+          <article><span class="delivery-icon">◎</span><h3>Retirada em estação</h3><p>Disponível aos sábados, mediante combinação prévia de estação, horário e disponibilidade pelo WhatsApp.</p></article>
+          <article><span class="delivery-icon">♡</span><h3>Retirada no local</h3><p>Endereço e horário são combinados diretamente pelo WhatsApp.</p></article>
+        </div>
       </section>
 
       <section class="instagram-strip" id="sobre">
@@ -108,6 +134,12 @@
       <div class="footer-links"><a href="https://www.instagram.com/clarysse.makes/" target="_blank" rel="noreferrer">Instagram</a><a href="https://wa.me/5511952733132" target="_blank" rel="noreferrer">WhatsApp</a><span>Jandira · SP</span></div>
       <small class="copyright">© <span id="year">2026</span> Clarysse Makes</small>
     </footer>
+
+    <div class="cart-toast" id="cart-toast" role="status" aria-live="polite" hidden>
+      <span>Produto adicionado ao carrinho!</span>
+      <button id="toast-open-cart" type="button">Ver carrinho</button>
+    </div>
+
     <div class="cart-backdrop" id="cart-backdrop" hidden>
       <section class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" tabindex="-1">
         <div class="cart-head">
@@ -116,9 +148,27 @@
         </div>
         <div class="cart-items" id="cart-items"></div>
         <div class="cart-empty" id="cart-empty"><span>♡</span><p>Escolha seus favoritos<br />e coloque aqui.</p><button class="cart-continue" id="cart-continue" type="button">Continuar escolhendo</button></div>
+        <div class="cart-summary" id="cart-summary" hidden></div>
+        <div class="checkout-options" id="checkout-options" hidden>
+          <label for="fulfillment">Como deseja receber?</label>
+          <select id="fulfillment">
+            <option value="">Escolha uma opção</option>
+            <option value="motoboy">Entrega por motoboy</option>
+            <option value="station">Retirada em estação (sábado)</option>
+            <option value="local">Retirada no local</option>
+          </select>
+          <p class="fulfillment-hint" id="fulfillment-hint">Selecione uma forma de recebimento para continuar.</p>
+          <label class="fulfillment-extra" id="address-wrap" for="delivery-address" hidden>Endereço para entrega
+            <textarea id="delivery-address" rows="2" placeholder="Rua, número, bairro e cidade" autocomplete="street-address"></textarea>
+          </label>
+          <label class="fulfillment-extra" id="station-wrap" for="station-details" hidden>Estação ou ponto de encontro (opcional)
+            <input id="station-details" type="text" placeholder="A combinar pelo WhatsApp" />
+          </label>
+        </div>
         <div class="cart-footer">
-          <p>Valores e disponibilidade serão confirmados pelo WhatsApp.</p>
-          <a class="button button-primary cart-checkout" id="cart-checkout" href="https://wa.me/5511952733132" target="_blank" rel="noreferrer" hidden>Enviar pedido pelo WhatsApp <span aria-hidden="true">↗</span></a>
+          <p>O frete e a disponibilidade são confirmados pelo WhatsApp. Não há pagamento automático.</p>
+          <a class="button button-primary cart-checkout" id="cart-checkout" href="https://wa.me/5511952733132" target="_blank" rel="noreferrer" hidden>Finalizar pedido pelo WhatsApp <span aria-hidden="true">↗</span></a>
+          <p class="checkout-validation" id="checkout-validation" role="status" aria-live="polite"></p>
         </div>
       </section>
     </div>
