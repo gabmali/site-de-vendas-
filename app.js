@@ -32,6 +32,37 @@ const products = [
   { id: "agua-micelar-max-love", name: "Água Micelar – Max Love", detail: "Rosa Mosqueta, Antioxidante ou Carvão", category: "skincare", priceCents: 1000, image: "c03005882eb6e830.jpg", stock: "check" },
 ];
 
+// Textos comerciais curtos, baseados no nome e nas características já cadastradas.
+const productDescriptions = {
+  "lip-gloss": "Um toque de brilho para realçar os lábios e completar sua make. Compacto e fácil de levar na bolsa para retocar quando quiser.",
+  "lip-gloss-teddy": "Seu novo detalhe favorito para uma make delicada: um gloss prático de 3 ml, perfeito para levar com você e dar um acabamento luminoso aos lábios.",
+  "esfoliante-vitamina-c": "Acrescente um momento de esfoliação à sua rotina de cuidados faciais. Uma escolha prática para quem gosta de dedicar atenção extra à pele.",
+  "perfume-capilar": "Leve seu perfume capilar favorito para a rotina: escolha entre Transcendent Pink e Ray Flower. Frascos de 30 ml, práticos para ter sempre por perto.",
+  "serum-abacate-pitaya": "Um sérum facial de Abacate e Pitaya para incluir no seu ritual de autocuidado. O frasco de 30 ml é um convite a reservar um momento só seu.",
+  "serum-rosa-mosqueta-max-love": "Um passo especial para sua rotina facial: Sérum Rosa Mosqueta em frasco de 30 ml, ideal para deixar seu momento de cuidado ainda mais completo.",
+  "serum-vitamina-c-max-love": "Inclua o Sérum Vitamina C na sua rotina de cuidados com a pele. Uma opção prática para criar um ritual diário do seu jeito.",
+  "presilhas-flor": "Um detalhe charmoso para completar o penteado. As presilhas em formato de flor estão disponíveis em cores variadas para combinar com seu estilo.",
+  "po-banana-fenzza": "Finalize sua maquiagem com o Pó de Banana Fenzza e dê aquele toque final à produção. Um item versátil para ter no nécessaire.",
+  "gloss-lip-oil": "Brilho e cuidado labial em um só passo. O Lip Oil tem proposta hidratante e vem em cores variadas para você escolher a sua favorita.",
+  "hidratante-vaquinha": "Transforme o cuidado diário em um momento gostoso com o Hidratante Vaquinha. A embalagem de 250 ml é perfeita para deixar no seu cantinho de autocuidado.",
+  "esfoliante-corporal": "Um momento de esfoliação para deixar o cuidado corporal mais especial. Sunset Coral em pote de 220 g, para incluir na sua rotina de beleza.",
+  "body-splash-vaquinha": "Finalize sua rotina com o cheirinho leve do Body Splash Vaquinha. São 200 ml para acompanhar seus momentos de cuidado e perfumação.",
+  "mousse-facial-manga-rosa": "Uma mousse facial com extrato de manga rosa e água de coco para dar um toque especial ao seu ritual de cuidados. Embalagem de 150 ml.",
+  "lamina": "Praticidade para cuidar das sobrancelhas: o kit vem com 3 aparelhos, para você ter sempre um à mão no seu nécessaire.",
+  "bronzer-choco-fun": "Dê um toque bronzeado à sua make com o Bronzer Choco Fun. Um detalhe que ajuda a completar produções leves ou mais marcantes.",
+  "esfoliante-labial": "Um cuidado extra para os lábios: o esfoliante labial é aquele passo especial para incluir na sua rotina de beleza.",
+  "bruma-fixadora": "Finalize sua maquiagem com a Bruma Fixadora Skin Pro Matte. A embalagem de 130 ml é prática para completar sua rotina de make.",
+  "esfoliante-acido-salicilico": "Um esfoliante com ácido salicílico, indicado no rótulo para pele oleosa e acneica. Inclua nos cuidados seguindo as instruções da embalagem.",
+  "esfoliante-body-juice-cereja": "Deixe seu autocuidado mais gostoso com o Esfoliante Corporal Body Juice Cereja. Um passo especial para a sua rotina, em embalagem de 100 g.",
+  "pure-seduction": "A loção perfumada Pure Seduction é para quem quer adicionar sua fragrância favorita ao ritual de cuidado corporal. Embalagem de 236 ml.",
+  "amber-romance": "Um toque perfumado para o seu cuidado diário: conheça a loção Amber Romance, em embalagem de 236 ml.",
+  "bare-vanilla": "A loção perfumada Bare Vanilla combina seu cuidado corporal com uma fragrância marcante. São 236 ml para aproveitar no dia a dia.",
+  "love-spell": "Um momento de cuidado com a fragrância Love Spell. Loção perfumada de 236 ml para deixar sua rotina ainda mais especial.",
+  "strawberry-champagne": "A loção perfumada Strawberries & Champagne é um convite para tornar seu cuidado corporal mais especial. Embalagem de 236 ml.",
+  "kit-doce-de-leite-vaquinha": "Um trio para deixar o cuidado corporal mais completo: sabonete, esfoliante e hidratante Vaquinha em uma combinação especial de Doce de Leite.",
+  "agua-micelar-max-love": "Escolha sua versão favorita — Rosa Mosqueta, Antioxidante ou Carvão — e acrescente a Água Micelar à sua rotina de cuidados com a pele.",
+};
+
 const phone = "5511952733132";
 const storageKey = "clarysse-makes-cart-v2";
 const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
@@ -121,28 +152,11 @@ function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character]));
 }
 
-function productUseContext(product) {
-  if (product.id === "perfume-capilar") return "Perfume destinado aos cabelos, conforme identificação do produto.";
-  if (product.category === "fragrance") return "Produto de perfumação, conforme a descrição cadastrada.";
-  if (product.category === "makeup") return "Produto de maquiagem, conforme a categoria cadastrada.";
-  if (product.category === "skincare") return "Produto de cuidados com a pele, conforme a categoria cadastrada.";
-  if (product.category === "accessories") return "Acessório de beleza, conforme a descrição cadastrada.";
-  if (product.category === "kits") return "Kit de cuidados corporais, conforme os itens informados no cadastro.";
-  return "Finalidade específica aguardando confirmação do fabricante.";
-}
-
-function productVolume(product) {
-  const match = product.detail.match(/\b\d+(?:[,.]\d+)?\s?(?:ml|g|kg|l|unidades?)\b/i);
-  return match ? match[0] : "Não informado no cadastro";
-}
-
 function openProductDetails(product, trigger) {
   if (!product) return;
   lastProductTrigger = trigger;
   const price = formatPrice(product.priceCents);
-  const description = product.detail
-    ? `${product.name} · ${product.detail}. Informações complementares do fabricante ainda não foram fornecidas.`
-    : `${product.name}. Descrição detalhada aguardando informações do fabricante.`;
+  const description = productDescriptions[product.id] || "Um detalhe especial para completar sua rotina de beleza e autocuidado.";
   const message = `Olá! Gostaria de comprar o produto ${product.name} no valor de ${price}. Ele está disponível?`;
   const image = product.image
     ? `<img class="product-modal-image${product.imageFit === "contain" ? " product-image-contain" : ""}" src="assets/instagram/${escapeHtml(product.gallery?.[0] || product.image)}" alt="${escapeHtml(product.name)}" />`
@@ -150,18 +164,12 @@ function openProductDetails(product, trigger) {
   productDialogContent.innerHTML = `<div class="product-modal-layout">
     <div class="product-modal-visual">${image}</div>
     <div class="product-modal-info">
-      <p class="eyebrow">DETALHES DO PRODUTO</p>
       <h2 id="product-dialog-title">${escapeHtml(product.name)}</h2>
       <p class="product-modal-price">${price}</p>
-      <dl class="product-modal-facts">
-        <div><dt>Descrição</dt><dd>${escapeHtml(description)}</dd></div>
-        <div><dt>Para que serve</dt><dd>${escapeHtml(productUseContext(product))}</dd></div>
-        <div><dt>Benefícios</dt><dd>Não informados pelo fabricante no cadastro atual.</dd></div>
-        <div><dt>Indicação</dt><dd>Necessidade específica aguardando confirmação do fabricante.</dd></div>
-        <div><dt>Como utilizar</dt><dd>Siga as instruções do rótulo. As instruções específicas ainda não foram cadastradas.</dd></div>
-        <div><dt>Cuidados e recomendações</dt><dd>Consulte o rótulo e as recomendações do fabricante antes do uso.</dd></div>
-        <div><dt>Quantidade ou volume</dt><dd>${escapeHtml(productVolume(product))}</dd></div>
-      </dl>
+      <section class="product-modal-description-wrap" aria-labelledby="product-description-label">
+        <h3 id="product-description-label">Descrição</h3>
+        <p class="product-modal-description">${escapeHtml(description)}</p>
+      </section>
       <div class="product-modal-actions">
         <a class="button button-primary" href="https://wa.me/${phone}?text=${encodeURIComponent(message)}" target="_blank" rel="noreferrer">QUERO COMPRAR ESSE PRODUTO <span aria-hidden="true">↗</span></a>
         <button class="product-modal-continue" type="button" data-close-product-dialog>Voltar à loja</button>
