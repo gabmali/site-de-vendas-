@@ -36,13 +36,13 @@ const products = [
 
 // Textos comerciais curtos, baseados no nome e nas características já cadastradas.
 const productDescriptions = {
-  "lip-gloss": "Um toque de brilho para realçar os lábios e completar sua make. Compacto e fácil de levar na bolsa para retocar quando quiser.",
+  "lip-gloss": "Um toque de brilho para realçar os lábios e completar sua make. Uma opção versátil para compor produções do dia a dia ou ocasiões especiais.",
   "lip-gloss-teddy": "Seu novo detalhe favorito para uma make delicada: um gloss prático de 3 ml, perfeito para levar com você e dar um acabamento luminoso aos lábios.",
-  "esfoliante-vitamina-c": "Acrescente um momento de esfoliação à sua rotina de cuidados faciais. Uma escolha prática para quem gosta de dedicar atenção extra à pele.",
+  "esfoliante-vitamina-c": "Gel esfoliante facial com Vitamina C para incluir na sua rotina de cuidados com a pele. Embalagem de 100 g.",
   "perfume-capilar": "Leve seu perfume capilar favorito para a rotina: escolha entre Transcendent Pink e Ray Flower. Frascos de 30 ml, práticos para ter sempre por perto.",
   "serum-abacate-pitaya": "Um sérum facial de Abacate e Pitaya para incluir no seu ritual de autocuidado. O frasco de 30 ml é um convite a reservar um momento só seu.",
   "serum-rosa-mosqueta-max-love": "Um passo especial para sua rotina facial: Sérum Rosa Mosqueta em frasco de 30 ml, ideal para deixar seu momento de cuidado ainda mais completo.",
-  "serum-vitamina-c-max-love": "Inclua o Sérum Vitamina C na sua rotina de cuidados com a pele. Uma opção prática para criar um ritual diário do seu jeito.",
+  "serum-vitamina-c-max-love": "Sérum facial Vitamina C oil-free, em frasco de 30 ml, para compor sua rotina de cuidados com a pele.",
   "presilhas-flor": "Um detalhe charmoso para completar o penteado. As presilhas em formato de flor estão disponíveis em cores variadas para combinar com seu estilo.",
   "escova-cabelo": "Prática para acompanhar seus cuidados com os cabelos no dia a dia. Escolha entre azul, pink ou preta; consulte a cor disponível no momento do pedido.",
   "po-banana-fenzza": "Finalize sua maquiagem com o Pó de Banana Fenzza e dê aquele toque final à produção. Um item versátil para ter no nécessaire.",
@@ -50,7 +50,7 @@ const productDescriptions = {
   "hidratante-vaquinha": "Transforme o cuidado diário em um momento gostoso com o Hidratante Vaquinha. A embalagem de 250 ml é perfeita para deixar no seu cantinho de autocuidado.",
   "creme-corporal-cereja": "Um toque especial de cereja para o seu ritual de cuidado corporal. O Creme Body Juice vem em embalagem de 100 g para deixar seu momento de autocuidado ainda mais gostoso.",
   "esfoliante-corporal": "Um momento de esfoliação para deixar o cuidado corporal mais especial. Sunset Coral em pote de 220 g, para incluir na sua rotina de beleza.",
-  "body-splash-vaquinha": "Finalize sua rotina com o cheirinho leve do Body Splash Vaquinha. São 200 ml para acompanhar seus momentos de cuidado e perfumação.",
+  "body-splash-vaquinha": "Uma unidade de Body Splash Vaquinha com 200 ml e fragrância leve, doce, suave e envolvente para acompanhar sua rotina de perfumação.",
   "mousse-facial-manga-rosa": "Uma mousse facial com extrato de manga rosa e água de coco para dar um toque especial ao seu ritual de cuidados. Embalagem de 150 ml.",
   "lamina": "Praticidade para cuidar das sobrancelhas: o kit vem com 3 aparelhos, para você ter sempre um à mão no seu nécessaire.",
   "bronzer-choco-fun": "Dê um toque bronzeado à sua make com o Bronzer Choco Fun. Um detalhe que ajuda a completar produções leves ou mais marcantes.",
@@ -63,8 +63,8 @@ const productDescriptions = {
   "bare-vanilla": "A loção perfumada Bare Vanilla combina seu cuidado corporal com uma fragrância marcante. São 236 ml para aproveitar no dia a dia.",
   "love-spell": "Um momento de cuidado com a fragrância Love Spell. Loção perfumada de 236 ml para deixar sua rotina ainda mais especial.",
   "strawberry-champagne": "A loção perfumada Strawberries & Champagne é um convite para tornar seu cuidado corporal mais especial. Embalagem de 236 ml.",
-  "kit-doce-de-leite-vaquinha": "Um trio para deixar o cuidado corporal mais completo: sabonete, esfoliante e hidratante Vaquinha em uma combinação especial de Doce de Leite.",
-  "agua-micelar-max-love": "Escolha sua versão favorita — Rosa Mosqueta, Antioxidante ou Carvão — e acrescente a Água Micelar à sua rotina de cuidados com a pele.",
+  "kit-doce-de-leite-vaquinha": "Trio Nelô Doce de Leite com sabonete, esfoliante e hidratante corporal, reunidos para um momento de cuidado com o corpo.",
+  "agua-micelar-max-love": "Água Micelar Max Love em três versões: Rosa Mosqueta, Antioxidante ou Carvão Ativado. Cada frasco tem 290 ml; escolha a opção desejada na hora do pedido.",
 };
 
 const phone = "5511952733132";
