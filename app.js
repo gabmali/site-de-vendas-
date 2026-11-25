@@ -390,7 +390,6 @@ function showToast() {
 function renderShowcase() {
   const featuredIds = [
     "lip-gloss",
-    "body-splash-vaquinha",
     "perfume-capilar",
     "serum-rosa-mosqueta-max-love",
     "presilhas-flor",
@@ -403,9 +402,9 @@ function renderShowcase() {
     "kit-doce-de-leite-vaquinha",
   ];
   const featured = featuredIds.map((id) => products.find((product) => product.id === id)).filter((product) => product?.image && product.stock !== "unavailable");
-  featured.splice(2, 0,
-    { id: "kit-cereja-corporal", target: "#kit-cereja-corporal", name: "Kit Cuidado Corporal Cereja", priceCents: 3000, image: "kit-cereja-corporal.jpg" },
+  featured.splice(1, 0,
     { id: "kit-vaquinha-corporal", target: "#kit-vaquinha-corporal", name: "Kit Vaquinha: Body Splash + Hidratante", priceCents: 3000, image: "kit-vaquinha-corporal.jpg" },
+    { id: "kit-cereja-corporal", target: "#kit-cereja-corporal", name: "Kit Cuidado Corporal Cereja", priceCents: 3000, image: "kit-cereja-corporal.jpg" },
   );
   featured.push(
     { id: "kit-rotina-cuidados-rosto", target: "#kit-rotina-cuidados-rosto", name: "Kit Rotina de Cuidados com o Rosto", priceCents: 3400, image: "kit-rotina-cuidados-rosto.jpg", imageFit: "contain" },
