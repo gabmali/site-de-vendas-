@@ -4,7 +4,7 @@ const products = [
   { id: "lip-gloss", name: "Lip Gloss", detail: "Viva! · SOS Beijo · volume labial", category: "makeup", priceCents: 1200, image: "dccf3be0886ebff0.jpg", stock: "check" },
   { id: "lip-gloss-teddy", name: "Lip Gloss Teddy", detail: "Melu · 3 ml", category: "makeup", priceCents: 1200, image: "85d38dfc82278184.jpg", stock: "check" },
   { id: "esfoliante-vitamina-c", name: "Esfoliante Vitamina C", detail: "Derma Chem · 100 g", category: "skincare", priceCents: 1000, image: "0271d032cd8c1436.jpg", stock: "check" },
-  { id: "perfume-capilar", name: "Perfume Capilar", detail: "Shine's Transcendent Pink e Bellinés Ray Flower · 30 ml cada", category: "fragrance", priceCents: 1000, image: "perfume-capilar-pink.jpg", gallery: ["perfume-capilar-pink.jpg", "perfume-capilar-ray.jpg"], stock: "check" },
+  { id: "perfume-capilar", name: "Perfume Capilar", detail: "Transcendent Pink e Ray Flower · 30 ml cada", category: "fragrance", priceCents: 1000, image: "perfume-capilar-pink.jpg", gallery: ["perfume-capilar-pink.jpg", "perfume-capilar-ray.jpg"], galleryLabels: ["Transcendent Pink", "Ray Flower"], stock: "check" },
   { id: "serum-abacate-pitaya", name: "Sérum Abacate e Pitaya", detail: "Mia Make · Skin Fruit · 30 ml", category: "skincare", priceCents: 1000, image: "serum-abacate-pitaya.jpg", imageFit: "contain", stock: "check" },
   { id: "serum-rosa-mosqueta-max-love", name: "Sérum Rosa Mosqueta – Max Love", detail: "Max Love Studio · 30 ml", category: "skincare", priceCents: 1000, image: "serum-rosa-mosqueta-max-love.jpg", imageFit: "contain", stock: "check" },
   { id: "serum-vitamina-c-max-love", name: "Sérum Vitamina C – Max Love", detail: "Max Love Studio · 30 ml", category: "skincare", priceCents: 1000, image: "eb59afe2e0fcc6d9.jpg", stock: "check" },
@@ -98,6 +98,8 @@ const toast = document.querySelector("#cart-toast");
 const productDialog = document.querySelector("#product-dialog");
 const productDialogContent = document.querySelector("#product-dialog-content");
 let lastProductTrigger = null;
+let activeModalProduct = null;
+let activeModalVariantIndex = 0;
 const cart = loadCart();
 let activeCategory = "all";
 let toastTimer;
@@ -117,6 +119,9 @@ function imageMarkup(product, className = "") {
 function productCard(product) {
   const message = `Olá! Tenho interesse no produto ${product.name}. Gostaria de mais informações.`;
   const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const purchaseAction = product.galleryLabels?.length > 1
+    ? `<button class="product-cta product-cta-button" type="button" data-view-product="${product.id}">Escolher fragrância <span aria-hidden="true">↗</span></button>`
+    : `<a class="product-cta" href="${href}" target="_blank" rel="noreferrer">Quero esse produto <span aria-hidden="true">↗</span></a>`;
   const badge = product.stock === "available"
     ? '<span class="stock-badge available"><i></i> Disponível</span>'
     : product.stock === "unavailable"
@@ -124,9 +129,10 @@ function productCard(product) {
       : '<span class="stock-badge check-stock"><i></i> Consulte disponibilidade</span>';
 
   const imageContent = product.gallery?.length > 1
-    ? `<img class="product-image-contain" src="assets/instagram/${product.gallery[0]}" alt="Perfume capilar Transcendent Pink" loading="lazy" data-gallery-image data-view-product="${product.id}" role="button" tabindex="0" aria-label="Ver detalhes de ${product.name}" />
-      <span class="gallery-caption" data-gallery-caption>Transcendent Pink · 1 de 2</span>
-      <button class="gallery-next" type="button" data-gallery-next aria-label="Ver o próximo perfume capilar">›</button>`
+    ? `<div class="product-gallery-pair" aria-label="Duas fragrâncias de perfume capilar">
+        ${product.gallery.map((image, index) => `<button class="product-gallery-option" type="button" data-view-product="${product.id}" data-gallery-variant="${index}" aria-label="Ver ${product.galleryLabels[index]}"><img class="product-gallery-photo" src="assets/instagram/${image}" alt="Perfume Capilar ${product.galleryLabels[index]}" loading="lazy"><span>${product.galleryLabels[index]}</span></button>`).join("")}
+        <span class="product-gallery-sequence" aria-hidden="true">›</span>
+      </div>`
     : imageMarkup(product);
 
   return `<article class="product-card" id="product-${product.id}" data-product-id="${product.id}"${product.gallery?.length > 1 ? ` data-gallery='${JSON.stringify(product.gallery)}'` : ""}>
@@ -142,36 +148,75 @@ function productCard(product) {
       <button class="product-detail-trigger" type="button" data-view-product="${product.id}">Ver detalhes <span aria-hidden="true">＋</span></button>
       <div class="product-purchase">
         <button class="add-to-cart" type="button" data-add-to-cart="${product.id}" ${product.stock === "unavailable" ? "disabled" : ""}>Adicionar ao carrinho <span aria-hidden="true">＋</span></button>
-        <a class="product-cta" href="${href}" target="_blank" rel="noreferrer">Quero esse produto <span aria-hidden="true">↗</span></a>
+        ${purchaseAction}
       </div>
     </div>
   </article>`;
+}
+
+function showcaseImageMarkup(product) {
+  if (product.gallery?.length > 1) {
+    return `<div class="showcase-gallery-pair" aria-label="Perfume Capilar nas fragrâncias ${product.galleryLabels.join(" e ")}">
+      ${product.gallery.map((image, index) => `<div class="showcase-gallery-option"><img src="assets/instagram/${image}" alt="Perfume Capilar ${product.galleryLabels[index]}" loading="lazy"><span>${product.galleryLabels[index]}</span></div>`).join("")}
+      <span class="showcase-gallery-sequence" aria-hidden="true">›</span>
+    </div>`;
+  }
+  return imageMarkup(product);
 }
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character]));
 }
 
+function productPurchaseHref(product, variantIndex = 0) {
+  const variant = product.galleryLabels?.[variantIndex];
+  const productName = variant ? `${product.name} – ${variant}` : product.name;
+  const message = `Olá! Gostaria de comprar o produto ${productName} no valor de ${formatPrice(product.priceCents)}. Ele está disponível?`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+function updateModalVariant(index) {
+  const product = activeModalProduct;
+  if (!product?.gallery?.length) return;
+  activeModalVariantIndex = (index + product.gallery.length) % product.gallery.length;
+  const label = product.galleryLabels[activeModalVariantIndex];
+  const image = productDialogContent.querySelector("#product-modal-image");
+  image.src = `assets/instagram/${product.gallery[activeModalVariantIndex]}`;
+  image.alt = `${product.name} ${label}`;
+  productDialogContent.querySelector("[data-selected-variant]").textContent = label;
+  productDialogContent.querySelectorAll("[data-modal-variant]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(Number(button.dataset.modalVariant) === activeModalVariantIndex));
+  });
+  productDialogContent.querySelector("[data-modal-buy]").href = productPurchaseHref(product, activeModalVariantIndex);
+}
+
 function openProductDetails(product, trigger) {
   if (!product) return;
   lastProductTrigger = trigger;
+  activeModalProduct = product;
+  activeModalVariantIndex = Number(trigger?.dataset?.galleryVariant || 0);
   const price = formatPrice(product.priceCents);
   const description = productDescriptions[product.id] || "Um detalhe especial para completar sua rotina de beleza e autocuidado.";
-  const message = `Olá! Gostaria de comprar o produto ${product.name} no valor de ${price}. Ele está disponível?`;
+  const variantLabel = product.galleryLabels?.[activeModalVariantIndex];
   const image = product.image
-    ? `<img class="product-modal-image${product.imageFit === "contain" ? " product-image-contain" : ""}" src="assets/instagram/${escapeHtml(product.gallery?.[0] || product.image)}" alt="${escapeHtml(product.name)}" />`
+    ? `<img class="product-modal-image${product.imageFit === "contain" || product.gallery?.length > 1 ? " product-image-contain" : ""}" id="product-modal-image" src="assets/instagram/${escapeHtml(product.gallery?.[activeModalVariantIndex] || product.image)}" alt="${escapeHtml(product.name)}${variantLabel ? ` ${escapeHtml(variantLabel)}` : ""}" />`
     : '<div class="product-modal-placeholder" aria-hidden="true">♡</div>';
+  const variantChoices = product.gallery?.length > 1
+    ? `<div class="product-modal-variants" aria-label="Escolha uma fragrância">${product.galleryLabels.map((label, index) => `<button type="button" data-modal-variant="${index}" aria-pressed="${index === activeModalVariantIndex}">${label}</button>`).join("")}</div>`
+    : "";
   productDialogContent.innerHTML = `<div class="product-modal-layout">
     <div class="product-modal-visual">${image}</div>
     <div class="product-modal-info">
       <h2 id="product-dialog-title">${escapeHtml(product.name)}</h2>
+      ${variantLabel ? `<p class="product-modal-selected-variant" data-selected-variant>${escapeHtml(variantLabel)}</p>` : ""}
       <p class="product-modal-price">${price}</p>
+      ${variantChoices}
       <section class="product-modal-description-wrap" aria-labelledby="product-description-label">
         <h3 id="product-description-label">Descrição</h3>
         <p class="product-modal-description">${escapeHtml(description)}</p>
       </section>
       <div class="product-modal-actions">
-        <a class="button button-primary" href="https://wa.me/${phone}?text=${encodeURIComponent(message)}" target="_blank" rel="noreferrer">QUERO COMPRAR ESSE PRODUTO <span aria-hidden="true">↗</span></a>
+        <a class="button button-primary" data-modal-buy href="${productPurchaseHref(product, activeModalVariantIndex)}" target="_blank" rel="noreferrer">QUERO COMPRAR ESSE PRODUTO <span aria-hidden="true">↗</span></a>
         <button class="product-modal-continue" type="button" data-close-product-dialog>Voltar à loja</button>
       </div>
     </div>
@@ -362,7 +407,7 @@ function renderShowcase() {
   const viewport = document.querySelector("#showcase-viewport");
   const status = document.querySelector("#showcase-status");
   track.innerHTML = featured.map((product) => `<a class="showcase-card" href="${product.target || `#product-${product.id}`}" aria-label="Ver ${product.name} no catálogo">
-    <div class="showcase-photo">${imageMarkup(product)}</div>
+    <div class="showcase-photo">${showcaseImageMarkup(product)}</div>
     <span class="showcase-card-name">${product.name}</span>
     <strong>${formatPrice(product.priceCents)}</strong>
   </a>`).join("");
@@ -411,20 +456,6 @@ document.querySelector("#category-filters").addEventListener("click", (event) =>
 });
 
 grid.addEventListener("click", (event) => {
-  const galleryButton = event.target.closest("[data-gallery-next]");
-  if (galleryButton) {
-    const card = galleryButton.closest("[data-gallery]");
-    const images = JSON.parse(card.dataset.gallery);
-    const image = card.querySelector("[data-gallery-image]");
-    const caption = card.querySelector("[data-gallery-caption]");
-    const next = (Number(card.dataset.galleryIndex || 0) + 1) % images.length;
-    const labels = ["Transcendent Pink", "Ray Flower"];
-    card.dataset.galleryIndex = next;
-    image.src = `assets/instagram/${images[next]}`;
-    image.alt = `Perfume capilar ${labels[next]}`;
-    caption.textContent = `${labels[next]} · ${next + 1} de ${images.length}`;
-    return;
-  }
   const button = event.target.closest("[data-add-to-cart]");
   if (!button || button.disabled) return;
   const id = button.dataset.addToCart;
@@ -457,6 +488,11 @@ document.addEventListener("keydown", (event) => {
 });
 
 productDialog.addEventListener("click", (event) => {
+  const variantButton = event.target.closest("[data-modal-variant]");
+  if (variantButton) {
+    updateModalVariant(Number(variantButton.dataset.modalVariant));
+    return;
+  }
   if (event.target === productDialog || event.target.closest("[data-close-product-dialog]")) productDialog.close();
 });
 productDialog.addEventListener("close", () => {

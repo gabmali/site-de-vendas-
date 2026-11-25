@@ -213,6 +213,12 @@ body.cart-open { overflow: hidden; }
 .showcase-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(96,43,61,.12); }
 .showcase-photo { aspect-ratio: 4 / 5; overflow: hidden; background: #f8d7e1; }
 .showcase-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.showcase-gallery-pair { position: relative; display: grid; width: 100%; height: 100%; grid-template-columns: repeat(2, minmax(0,1fr)); }
+.showcase-gallery-option { position: relative; min-width: 0; overflow: hidden; background: #f8d7e1; }
+.showcase-gallery-option + .showcase-gallery-option { border-left: 1px solid rgba(255,255,255,.9); }
+.showcase-gallery-option img { object-fit: contain; }
+.showcase-gallery-option > span { position: absolute; right: 0; bottom: 0; left: 0; padding: 7px 2px; color: #74364a; background: rgba(255,248,250,.94); font-size: 8px; font-weight: 700; text-align: center; }
+.showcase-gallery-sequence { position: absolute; top: 50%; left: 50%; display: grid; width: 24px; height: 24px; place-items: center; border: 1px solid rgba(255,255,255,.9); border-radius: 50%; color: #8f3654; background: rgba(255,255,255,.92); font-size: 19px; line-height: 1; transform: translate(-50%, -50%); }
 .showcase-card-name { display: block; min-height: 34px; padding: 8px 9px 3px; color: #60434e; font-family: var(--serif); font-size: 12px; line-height: 1.25; }
 .showcase-card strong { display: block; padding: 0 9px 9px; color: #a33559; font-size: 11px; }
 .showcase-hint { margin: 2px 0 0; color: #997580; font-size: 8px; text-align: right; }
@@ -359,6 +365,18 @@ body.cart-open { overflow: hidden; }
 .product-title-button { padding: 0; border: 0; color: inherit; background: none; cursor: pointer; font: inherit; line-height: inherit; text-align: left; }
 .product-title-button:hover, .product-detail-trigger:hover { color: #a33559; }
 .product-image-wrap img[data-view-product], .product-image-wrap [data-view-product][role="button"] { cursor: pointer; }
+.product-gallery-pair { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.product-gallery-option { position: relative; min-width: 0; overflow: hidden; padding: 0 0 24px; border: 0; color: #74364a; background: #f8d7e1; cursor: pointer; }
+.product-gallery-option + .product-gallery-option { border-left: 1px solid rgba(255,255,255,.85); }
+.product-gallery-option .product-gallery-photo { width: 100%; height: 100%; object-fit: contain; }
+.product-gallery-option > span { position: absolute; right: 0; bottom: 0; left: 0; padding: 7px 2px; background: rgba(255,248,250,.94); font-size: clamp(7px, .75vw, 10px); font-weight: 700; line-height: 1.2; }
+.product-gallery-sequence { position: absolute; z-index: 2; top: 50%; left: 50%; display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid rgba(255,255,255,.9); border-radius: 50%; color: #8f3654; background: rgba(255,255,255,.9); font-size: 22px; line-height: 1; transform: translate(-50%, -50%); pointer-events: none; }
+.photo-heart { pointer-events: none; }
+.product-cta-button { padding: 0; border: 0; background: transparent; cursor: pointer; font-family: inherit; }
+.product-modal-selected-variant { margin: 6px 0 -5px; color: #8e5367; font-size: 11px; font-weight: 700; }
+.product-modal-variants { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.product-modal-variants button { min-height: 32px; padding: 0 11px; border: 1px solid #e8cbd4; border-radius: 18px; color: #795663; background: #fff; cursor: pointer; font-size: 9px; }
+.product-modal-variants button[aria-pressed="true"] { border-color: #b54166; color: #fff; background: #b54166; }
 .product-detail-trigger { margin-top: 7px; padding: 0; border: 0; color: #9f536a; background: transparent; cursor: pointer; font: inherit; font-size: 9px; text-decoration: underline; }
 .product-modal-dialog { position: fixed; width: min(900px, calc(100vw - 36px)); max-width: none; max-height: calc(100vh - 36px); overflow: auto; padding: 0; border: 1px solid #efd9e1; border-radius: 8px; color: #62454f; background: #fffafb; box-shadow: 0 25px 80px rgba(64,25,40,.25); }
 .product-modal-dialog::backdrop { background: rgba(55,25,37,.56); backdrop-filter: blur(3px); }
