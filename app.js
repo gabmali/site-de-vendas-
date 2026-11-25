@@ -36,7 +36,7 @@ const products = [
 
 // Textos comerciais curtos, baseados no nome e nas características já cadastradas.
 const productDescriptions = {
-  "lip-gloss": "Um toque de brilho para realçar os lábios e completar sua make. Uma opção versátil para compor produções do dia a dia ou ocasiões especiais.",
+  "lip-gloss": "Realce seus lábios com brilho e efeito de volume. O Lip Gloss Viva! SOS Beijo completa sua make com um toque extra de destaque.",
   "lip-gloss-teddy": "Seu novo detalhe favorito para uma make delicada: um gloss prático de 3 ml, perfeito para levar com você e dar um acabamento luminoso aos lábios.",
   "esfoliante-vitamina-c": "Gel esfoliante facial com Vitamina C para incluir na sua rotina de cuidados com a pele. Embalagem de 100 g.",
   "perfume-capilar": "Leve seu perfume capilar favorito para a rotina: escolha entre Transcendent Pink e Ray Flower. Frascos de 30 ml, práticos para ter sempre por perto.",
