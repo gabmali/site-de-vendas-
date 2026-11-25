@@ -31,7 +31,7 @@ const products = [
   { id: "kit-doce-de-leite-vaquinha", name: "Kit Doce de Leite – Vaquinha", detail: "Sabonete, esfoliante e hidratante corporal", category: "kits", priceCents: 3600, image: "kit-doce-de-leite.jpg", imageFit: "contain", stock: "check" },
 
   // Item da versão anterior mantido como produto adicional, com valor confirmado.
-  { id: "agua-micelar-max-love", name: "Água Micelar – Max Love", detail: "Rosa Mosqueta, Antioxidante ou Carvão", category: "skincare", priceCents: 1000, image: "c03005882eb6e830.jpg", stock: "check" },
+  { id: "agua-micelar-max-love", name: "Água Micelar – Max Love", detail: "Unidade · 290 ml · Rosa Mosqueta, Antioxidante ou Carvão Ativado", category: "skincare", priceCents: 1000, image: "c03005882eb6e830.jpg", stock: "check" },
 ];
 
 // Textos comerciais curtos, baseados no nome e nas características já cadastradas.
@@ -64,7 +64,7 @@ const productDescriptions = {
   "love-spell": "Um momento de cuidado com a fragrância Love Spell. Loção perfumada de 236 ml para deixar sua rotina ainda mais especial.",
   "strawberry-champagne": "A loção perfumada Strawberries & Champagne é um convite para tornar seu cuidado corporal mais especial. Embalagem de 236 ml.",
   "kit-doce-de-leite-vaquinha": "Trio Nelô Doce de Leite com sabonete, esfoliante e hidratante corporal, reunidos para um momento de cuidado com o corpo.",
-  "agua-micelar-max-love": "Água Micelar Max Love em três versões: Rosa Mosqueta, Antioxidante ou Carvão Ativado. Cada frasco tem 290 ml; escolha a opção desejada na hora do pedido.",
+  "agua-micelar-max-love": "Água Micelar Max Love em três versões: Rosa Mosqueta, Antioxidante ou Carvão Ativado. Cada frasco tem 290 ml; escolha a opção desejada na hora do pedido. Valor de R$ 10,00 por unidade.",
 };
 
 const phone = "5511952733132";
