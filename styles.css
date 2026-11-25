@@ -343,6 +343,7 @@ body.cart-open { overflow: hidden; }
 .special-kit-count { margin: 9px 0 0; color: #71545f; font-size: 10px; text-align: right; }
 .special-kit-count strong { color: #9f3558; font-size: 12px; }
 .special-kit-composite-wrap { position: relative; overflow: hidden; aspect-ratio: 2 / 1; border: 1px solid #f0dfe4; background: #f9dbe6; }
+.special-kit-composite-wrap.kit-together-photo { aspect-ratio: 1 / 1; }
 .special-kit-composite { display: block; width: 100%; height: 100%; object-fit: contain; }
 .special-kit-composite-wrap > span { position: absolute; right: 10px; bottom: 10px; padding: 6px 10px; border: 1px solid rgba(255,255,255,.75); border-radius: 20px; color: #71364a; background: rgba(255,255,255,.92); font-size: 9px; font-weight: 700; }
 .special-kit-description { margin: 17px 0 13px; color: #79666d; font-size: 10px; line-height: 1.75; }
