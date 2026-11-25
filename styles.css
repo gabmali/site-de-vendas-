@@ -336,7 +336,6 @@ body.cart-open { overflow: hidden; }
 .special-kit-heading .eyebrow { margin: 0 0 5px; }
 .special-kit-heading h3 { margin: 0; color: #4b343c; font-family: var(--serif); font-size: 21px; line-height: 1.25; }
 .special-kit-products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
-.special-kit-card#kit-beleza-perfume .special-kit-products { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .special-kit-card:nth-child(3) .special-kit-products, .special-kit-card:nth-child(4) .special-kit-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .special-kit-products > div { min-width: 0; color: #71545f; font-size: 9px; line-height: 1.35; text-align: center; }
 .special-kit-products img { display: block; width: 100%; aspect-ratio: 3 / 4; margin-bottom: 7px; border: 1px solid #f0e4e7; background: #fbe5ed; object-fit: contain; }

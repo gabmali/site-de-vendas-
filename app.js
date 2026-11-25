@@ -404,9 +404,6 @@ function renderShowcase() {
     { id: "kit-facial-vitamina-c", target: "#kit-facial-vitamina-c", name: "Kit Rotina Facial Vitamina C", priceCents: 4000, image: "kit-facial-vitamina-c.jpg", imageFit: "contain" },
     { id: "kit-cereja-corporal", target: "#kit-cereja-corporal", name: "Kit Cuidado Corporal Cereja", priceCents: 3000, image: "kit-cereja-corporal.jpg" },
   );
-  featured.push(
-    { id: "kit-beleza-perfume", target: "#kit-beleza-perfume", name: "Kit Beleza & Perfume", priceCents: 5200, image: "kit-beleza-perfume.jpg", imageFit: "contain" },
-  );
   const track = document.querySelector("#showcase-track");
   const viewport = document.querySelector("#showcase-viewport");
   const status = document.querySelector("#showcase-status");
