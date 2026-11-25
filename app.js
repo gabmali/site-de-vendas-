@@ -395,10 +395,7 @@ function renderShowcase() {
     "presilhas-flor",
     "hidratante-vaquinha",
     "pure-seduction",
-    "amber-romance",
     "bare-vanilla",
-    "love-spell",
-    "strawberry-champagne",
     "kit-doce-de-leite-vaquinha",
   ];
   const featured = featuredIds.map((id) => products.find((product) => product.id === id)).filter((product) => product?.image && product.stock !== "unavailable");
