@@ -403,11 +403,13 @@ function renderShowcase() {
     "kit-doce-de-leite-vaquinha",
   ];
   const featured = featuredIds.map((id) => products.find((product) => product.id === id)).filter((product) => product?.image && product.stock !== "unavailable");
-  featured.push(
-    { id: "kit-rotina-cuidados-rosto", target: "#kit-rotina-cuidados-rosto", name: "Kit Rotina de Cuidados com o Rosto", priceCents: 3400, image: "serum-rosa-mosqueta-max-love.jpg", imageFit: "contain" },
-    { id: "kit-beleza-perfume", target: "#kit-beleza-perfume", name: "Kit Beleza & Perfume", priceCents: 4200, image: "perfume-capilar-pink.jpg", imageFit: "contain" },
+  featured.splice(2, 0,
     { id: "kit-cereja-corporal", target: "#kit-cereja-corporal", name: "Kit Cuidado Corporal Cereja", priceCents: 3000, image: "kit-cereja-corporal.jpg" },
     { id: "kit-vaquinha-corporal", target: "#kit-vaquinha-corporal", name: "Duo Vaquinha", priceCents: 3000, image: "kit-vaquinha-corporal.jpg" },
+  );
+  featured.push(
+    { id: "kit-rotina-cuidados-rosto", target: "#kit-rotina-cuidados-rosto", name: "Kit Rotina de Cuidados com o Rosto", priceCents: 3400, image: "kit-rotina-cuidados-rosto.jpg", imageFit: "contain" },
+    { id: "kit-beleza-perfume", target: "#kit-beleza-perfume", name: "Kit Beleza & Perfume", priceCents: 4200, image: "kit-beleza-perfume.jpg", imageFit: "contain" },
   );
   const track = document.querySelector("#showcase-track");
   const viewport = document.querySelector("#showcase-viewport");
