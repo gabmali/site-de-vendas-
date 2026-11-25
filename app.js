@@ -142,7 +142,6 @@ function productCard(product) {
   return `<article class="product-card" id="product-${product.id}" data-product-id="${product.id}"${product.gallery?.length > 1 ? ` data-gallery='${JSON.stringify(product.gallery)}'` : ""}>
     <div class="product-image-wrap">
       ${imageContent}
-      <span class="photo-heart" aria-hidden="true">♡</span>
     </div>
     <div class="product-info">
       <div class="product-status">${badge}<span class="category-tag">${categoryNames[product.category]}</span></div>
