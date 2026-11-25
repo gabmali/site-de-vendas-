@@ -15,7 +15,7 @@ const products = [
   { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "Bell Corpus · 250 ml", category: "skincare", priceCents: 1500, image: "hidratante-vaquinha.jpg", imageFit: "contain", stock: "check" },
   { id: "creme-corporal-cereja", name: "Creme Corporal Cereja", detail: "Body Juice · extrato de cereja e ácido hialurônico · 100 g", category: "skincare", priceCents: 1500, image: "creme-corporal-cereja-individual.jpg", imageFit: "contain", stock: "check" },
   { id: "esfoliante-corporal", name: "Esfoliante Corporal", detail: "S.Hine's · Sunset Coral · 220 g", category: "skincare", priceCents: 1000, image: "esfoliante-corporal-sunset-coral.jpg", imageFit: "contain", stock: "check" },
-  { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml · unidade", category: "fragrance", priceCents: 1500, image: "body-splash-vaquinha-kit.jpg", imageFit: "contain", stock: "check" },
+  { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml · unidade", category: "fragrance", priceCents: 1500, image: "body-splash-vaquinha.jpg", imageFit: "contain", stock: "check" },
   { id: "mousse-facial-manga-rosa", name: "Mousse Facial Manga Rosa", detail: "Pudim Super Poderes · extrato de manga rosa e água de coco · 150 ml", category: "skincare", priceCents: 1400, image: "22aa44565b6ac927.jpg", stock: "check" },
   { id: "lamina", name: "Lâmina", detail: "Aparelho para sobrancelhas · kit com 3", category: "accessories", priceCents: 1000, image: "lamina-sobrancelha.jpg", stock: "check" },
   { id: "bronzer-choco-fun", name: "Bronzer Choco Fun", detail: "Fenzza · acabamento bronze", category: "makeup", priceCents: 1000, image: "25288545ae87c896.jpg", stock: "check" },
