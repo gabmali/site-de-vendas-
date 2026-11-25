@@ -33,6 +33,9 @@ Referência criada em 24/11/2026 antes das alterações do catálogo.
 
 ## Estado após a ampliação do catálogo
 
+- `kit-facial-vitamina-c.jpg` (1199×1312, SHA-256 `57018DD2B05DBAEF5E6A3538E4A4159F059050C756C75DF735688DCC484D78D4`) é a foto enviada do kit facial com Água Micelar, Sérum Vitamina C, Primer e Gel Esfoliante.
+- `creme-corporal-cereja-individual.jpg` (1199×1312, SHA-256 `AE2689B9672D641AF687CA5BDF4028A2A371A0CDEEAC0088FAE02F2B6E7D5845`) e `esfoliante-body-juice-cereja-individual.jpg` (1290×1405, SHA-256 `1869F0C0FBA6E3FFF4B998143C5C28761BAC06AE6FF17AB2198082EE3130CC52`) são as novas fotos individuais fornecidas para os produtos Cereja já cadastrados.
+
 - As 12 imagens deste inventário-base continuam intactas, com os mesmos nomes e hashes.
 - Dez fotos originais estão associadas aos itens correspondentes do catálogo ampliado: Esfoliante Vitamina C, Lip Gloss (Viva! SOS Beijo), Lip Gloss Teddy, Mousse Facial Manga Rosa (extrato de manga rosa e água de coco), Sérum Vitamina C – Max Love, Presilhas Flor, Pó de Banana – Fenzza, Bronzer Choco Fun, Esfoliante Labial e Esfoliante Ácido Salicílico.
 - Água Micelar – Max Love continua preservada com sua foto e está no catálogo adicional por R$ 13,00.

@@ -13,7 +13,7 @@ const products = [
   { id: "po-banana-fenzza", name: "Pó de Banana – Fenzza", detail: "Fenzza Make Up", category: "makeup", priceCents: 1000, image: "452e129b1e32e16a.jpg", stock: "check" },
   { id: "gloss-lip-oil", name: "Gloss Lip Oil", detail: "Vivat · hidratante labial · cores variadas", category: "makeup", priceCents: 1000, image: "gloss-lip-oil.jpg", imageFit: "contain", stock: "check" },
   { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "Bell Corpus · 250 ml", category: "skincare", priceCents: 1500, image: "hidratante-vaquinha.jpg", imageFit: "contain", stock: "check" },
-  { id: "creme-corporal-cereja", name: "Creme Corporal Cereja", detail: "Body Juice · extrato de cereja e ácido hialurônico · 100 g", category: "skincare", priceCents: 1500, image: "creme-corporal-cereja.jpg", imageFit: "contain", stock: "check" },
+  { id: "creme-corporal-cereja", name: "Creme Corporal Cereja", detail: "Body Juice · extrato de cereja e ácido hialurônico · 100 g", category: "skincare", priceCents: 1500, image: "creme-corporal-cereja-individual.jpg", imageFit: "contain", stock: "check" },
   { id: "esfoliante-corporal", name: "Esfoliante Corporal", detail: "S.Hine's · Sunset Coral · 220 g", category: "skincare", priceCents: 1000, image: "esfoliante-corporal-sunset-coral.jpg", imageFit: "contain", stock: "check" },
   { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml · unidade", category: "fragrance", priceCents: 1500, image: "body-splash-vaquinha-kit.jpg", imageFit: "contain", stock: "check" },
   { id: "mousse-facial-manga-rosa", name: "Mousse Facial Manga Rosa", detail: "Pudim Super Poderes · extrato de manga rosa e água de coco · 150 ml", category: "skincare", priceCents: 1400, image: "22aa44565b6ac927.jpg", stock: "check" },
@@ -22,7 +22,7 @@ const products = [
   { id: "esfoliante-labial", name: "Esfoliante Labial", detail: "We Candy · lip scrub", category: "skincare", priceCents: 700, image: "f9afb6f455f979c0.jpg", stock: "check" },
   { id: "bruma-fixadora", name: "Bruma Fixadora", detail: "Lady Beauty · Skin Pro Matte · 130 ml", category: "makeup", priceCents: 1000, image: "bruma-fixadora.jpg", stock: "check" },
   { id: "esfoliante-acido-salicilico", name: "Esfoliante Ácido Salicílico", detail: "Derma Chem · pele oleosa e acneica", category: "skincare", priceCents: 1000, image: "5ce38450d3b52779.jpg", stock: "check" },
-  { id: "esfoliante-body-juice-cereja", name: "Esfoliante Body Juice – Cereja", detail: "Derma Chem · 100 g", category: "skincare", priceCents: 1500, image: "esfoliante-body-juice-cereja.jpg", imageFit: "contain", stock: "check" },
+  { id: "esfoliante-body-juice-cereja", name: "Esfoliante Body Juice – Cereja", detail: "Derma Chem · 100 g", category: "skincare", priceCents: 1500, image: "esfoliante-body-juice-cereja-individual.jpg", imageFit: "contain", stock: "check" },
   { id: "pure-seduction", name: "Inspiração Victoria's Secret – Pure Seduction", detail: "Loção perfumada · Pure Seduction · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-pure-seduction.jpg", imageFit: "contain", stock: "check" },
   { id: "amber-romance", name: "Inspiração Victoria's Secret – Amber Romance", detail: "Loção perfumada · Amber Romance · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-amber-romance.jpg", imageFit: "contain", stock: "check" },
   { id: "bare-vanilla", name: "Inspiração Victoria's Secret – Bare Vanilla", detail: "Loção perfumada · Bare Vanilla · 236 ml", category: "fragrance", priceCents: 3000, image: "vs-bare-vanilla.jpg", imageFit: "contain", stock: "check" },
@@ -404,6 +404,7 @@ function renderShowcase() {
   const featured = featuredIds.map((id) => products.find((product) => product.id === id)).filter((product) => product?.image && product.stock !== "unavailable");
   featured.splice(1, 0,
     { id: "kit-vaquinha-corporal", target: "#kit-vaquinha-corporal", name: "Kit Vaquinha: Body Splash + Hidratante", priceCents: 3000, image: "kit-vaquinha-corporal.jpg" },
+    { id: "kit-facial-vitamina-c", target: "#kit-facial-vitamina-c", name: "Kit Rotina Facial Vitamina C", priceCents: 4000, image: "kit-facial-vitamina-c.jpg", imageFit: "contain" },
     { id: "kit-cereja-corporal", target: "#kit-cereja-corporal", name: "Kit Cuidado Corporal Cereja", priceCents: 3000, image: "kit-cereja-corporal.jpg" },
   );
   featured.push(
