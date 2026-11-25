@@ -50,4 +50,9 @@ $15CB183E08FA059E211FD850ABA8D6F4C8381C982BDCEDCEEAC9AE0C73AC6F650` |
 
 
 - Em 24/11/2026, as fotos dos cinco cremes Victoria’s Secret foram atualizadas para versões com fundo rosa fornecidas pela loja; os arquivos atuais e seus hashes refletem essas versões.
+- Em 25/11/2026, adicionada a foto enviada da Escova de Cabelo (cores variadas), sem alterar os arquivos anteriores:
+
+| Arquivo | Dimensões | Produto associado | SHA-256 |
+|---|---:|---|---|
+| `escova-cabelo-cores.jpg` | 1254×1254 | Escova de Cabelo — azul, pink ou preta | `AC56D519029A3F76FE238BACB73BD02B3EDA92CA41CDEB7AA4D6A25E7560937B` |
 
