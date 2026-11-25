@@ -55,4 +55,13 @@ $15CB183E08FA059E211FD850ABA8D6F4C8381C982BDCEDCEEAC9AE0C73AC6F650` |
 | Arquivo | Dimensões | Produto associado | SHA-256 |
 |---|---:|---|---|
 | `escova-cabelo-cores.jpg` | 1254×1254 | Escova de Cabelo — azul, pink ou preta | `AC56D519029A3F76FE238BACB73BD02B3EDA92CA41CDEB7AA4D6A25E7560937B` |
+- Em 25/11/2026, adicionadas as fotos recebidas para os kits Cereja e Vaquinha e recortes dos produtos:
+
+| Arquivo | Dimensões | Uso | SHA-256 |
+|---|---:|---|---|
+| `kit-cereja-corporal.jpg` | 1254×1254 | Destaque do Kit Cuidado Corporal Cereja | `302B588022365A5CA0D363599C92373699D6FBE0931C8FF68BF1594EE002E9DC` |
+| `creme-corporal-cereja.jpg` | 410×870 | Creme Corporal Cereja — produto individual e foto do kit | `5AF01B53D52DB578E2E96A2E20E82CA88A1551C471CC5EA24C001B906C365E70` |
+| `kit-vaquinha-corporal.jpg` | 1086×1448 | Destaque do Duo Vaquinha | `1AE6B2FDC14499EB87D05742EF43A181962DD2DF0EF222BC9D7D68A47ECB8C5E` |
+| `body-splash-vaquinha-kit.jpg` | 295×1075 | Recorte do Body Splash Vaquinha recebido para o kit | `DCBA28EC4F1415F549343C9634C6861A4B44766C2A0C83D77D1FCA2CBB007663` |
+| `hidratante-vaquinha-kit.jpg` | 560×735 | Recorte do Hidratante Vaquinha recebido para o kit | `3D0F77D52EF9F46C695817A66B8A86932711DD81DA3A84101C9F85E85B709182` |
 

@@ -12,9 +12,10 @@ const products = [
   { id: "escova-cabelo", name: "Escova de Cabelo", detail: "Acessório para pentear · cores variadas", category: "accessories", priceCents: 1000, image: "escova-cabelo-cores.jpg", imageFit: "contain", stock: "check" },
   { id: "po-banana-fenzza", name: "Pó de Banana – Fenzza", detail: "Fenzza Make Up", category: "makeup", priceCents: 1000, image: "452e129b1e32e16a.jpg", stock: "check" },
   { id: "gloss-lip-oil", name: "Gloss Lip Oil", detail: "Vivat · hidratante labial · cores variadas", category: "makeup", priceCents: 1000, image: "gloss-lip-oil.jpg", imageFit: "contain", stock: "check" },
-  { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "Bell Corpus · 250 ml", category: "skincare", priceCents: 1000, image: "hidratante-vaquinha.jpg", imageFit: "contain", stock: "check" },
+  { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "Bell Corpus · 250 ml", category: "skincare", priceCents: 1500, image: "hidratante-vaquinha.jpg", imageFit: "contain", stock: "check" },
+  { id: "creme-corporal-cereja", name: "Creme Corporal Cereja", detail: "Body Juice · extrato de cereja e ácido hialurônico · 100 g", category: "skincare", priceCents: 1500, image: "creme-corporal-cereja.jpg", imageFit: "contain", stock: "check" },
   { id: "esfoliante-corporal", name: "Esfoliante Corporal", detail: "S.Hine's · Sunset Coral · 220 g", category: "skincare", priceCents: 1000, image: "esfoliante-corporal-sunset-coral.jpg", imageFit: "contain", stock: "check" },
-  { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml", category: "fragrance", priceCents: 1000, image: "body-splash-vaquinha.jpg", imageFit: "contain", stock: "check" },
+  { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml", category: "fragrance", priceCents: 1500, image: "body-splash-vaquinha.jpg", imageFit: "contain", stock: "check" },
   { id: "mousse-facial-manga-rosa", name: "Mousse Facial Manga Rosa", detail: "Pudim Super Poderes · extrato de manga rosa e água de coco · 150 ml", category: "skincare", priceCents: 1400, image: "22aa44565b6ac927.jpg", stock: "check" },
   { id: "lamina", name: "Lâmina", detail: "Aparelho para sobrancelhas · kit com 3", category: "accessories", priceCents: 1000, image: "lamina-sobrancelha.jpg", stock: "check" },
   { id: "bronzer-choco-fun", name: "Bronzer Choco Fun", detail: "Fenzza · acabamento bronze", category: "makeup", priceCents: 1000, image: "25288545ae87c896.jpg", stock: "check" },
@@ -47,6 +48,7 @@ const productDescriptions = {
   "po-banana-fenzza": "Finalize sua maquiagem com o Pó de Banana Fenzza e dê aquele toque final à produção. Um item versátil para ter no nécessaire.",
   "gloss-lip-oil": "Brilho e cuidado labial em um só passo. O Lip Oil tem proposta hidratante e vem em cores variadas para você escolher a sua favorita.",
   "hidratante-vaquinha": "Transforme o cuidado diário em um momento gostoso com o Hidratante Vaquinha. A embalagem de 250 ml é perfeita para deixar no seu cantinho de autocuidado.",
+  "creme-corporal-cereja": "Um toque especial de cereja para o seu ritual de cuidado corporal. O Creme Body Juice vem em embalagem de 100 g para deixar seu momento de autocuidado ainda mais gostoso.",
   "esfoliante-corporal": "Um momento de esfoliação para deixar o cuidado corporal mais especial. Sunset Coral em pote de 220 g, para incluir na sua rotina de beleza.",
   "body-splash-vaquinha": "Finalize sua rotina com o cheirinho leve do Body Splash Vaquinha. São 200 ml para acompanhar seus momentos de cuidado e perfumação.",
   "mousse-facial-manga-rosa": "Uma mousse facial com extrato de manga rosa e água de coco para dar um toque especial ao seu ritual de cuidados. Embalagem de 150 ml.",
@@ -404,6 +406,8 @@ function renderShowcase() {
   featured.unshift(
     { id: "kit-rotina-cuidados-rosto", target: "#kit-rotina-cuidados-rosto", name: "Kit Rotina de Cuidados com o Rosto", priceCents: 3400, image: "serum-rosa-mosqueta-max-love.jpg", imageFit: "contain" },
     { id: "kit-beleza-perfume", target: "#kit-beleza-perfume", name: "Kit Beleza & Perfume", priceCents: 4200, image: "perfume-capilar-pink.jpg", imageFit: "contain" },
+    { id: "kit-cereja-corporal", target: "#kit-cereja-corporal", name: "Kit Cuidado Corporal Cereja", priceCents: 3000, image: "kit-cereja-corporal.jpg" },
+    { id: "kit-vaquinha-corporal", target: "#kit-vaquinha-corporal", name: "Duo Vaquinha", priceCents: 3000, image: "kit-vaquinha-corporal.jpg" },
   );
   const track = document.querySelector("#showcase-track");
   const viewport = document.querySelector("#showcase-viewport");
