@@ -404,3 +404,30 @@ body.cart-open { overflow: hidden; }
   .product-modal-price { margin-bottom: 12px; }
   .product-modal-description { font-size: 10px; }
 }
+
+/* Acesso rápido persistente: carrinho acima, WhatsApp na base. */
+.floating-actions { position: fixed; z-index: 26; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); display: flex; align-items: flex-end; flex-direction: column; gap: 9px; }
+.floating-actions .floating-cart { min-height: 40px; justify-content: center; padding: 7px 13px; box-shadow: 0 8px 22px rgba(87,39,56,.16); }
+.floating-actions .floating-cart > span { display: inline; }
+.floating-actions .floating-whatsapp { min-height: 43px; justify-content: center; gap: 9px; padding: 0 14px; border: 1px solid #a9365d; border-radius: 30px; color: #fff; background: #a9365d; box-shadow: 0 8px 22px rgba(87,39,56,.19); }
+.floating-actions .floating-whatsapp svg { width: 18px; height: 18px; fill: currentColor; }
+.floating-actions .floating-whatsapp span { display: inline; }
+.floating-actions :focus-visible { outline-offset: 3px; }
+.cart-toast { right: 20px; bottom: 124px; }
+#catalogo { scroll-margin-top: 92px; }
+.modal-add-to-cart { width: 100%; border: 0; cursor: pointer; }
+.modal-add-to-cart:disabled { opacity: .55; cursor: not-allowed; }
+.modal-add-to-cart.is-added { background: #64866e; }
+
+@media (max-width: 1400px) {
+  .floating-actions .floating-cart,
+  .floating-actions .floating-whatsapp { width: 46px; height: 46px; min-height: 46px; justify-content: center; gap: 0; padding: 0; border-radius: 50%; }
+  .floating-actions .floating-cart > span,
+  .floating-actions .floating-whatsapp > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+}
+
+@media (max-width: 640px) {
+  .floating-actions { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); gap: 8px; }
+  .cart-toast { right: 10px; bottom: calc(108px + env(safe-area-inset-bottom)); left: 10px; justify-content: space-between; }
+  #catalogo { scroll-margin-top: 76px; }
+}

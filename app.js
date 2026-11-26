@@ -219,7 +219,8 @@ function openProductDetails(product, trigger) {
         <p class="product-modal-description">${escapeHtml(description)}</p>
       </section>
       <div class="product-modal-actions">
-        <a class="button button-primary" data-modal-buy href="${productPurchaseHref(product, activeModalVariantIndex)}" target="_blank" rel="noreferrer">QUERO COMPRAR ESSE PRODUTO <span aria-hidden="true">↗</span></a>
+        <button class="button button-primary modal-add-to-cart" type="button" data-modal-add-to-cart="${product.id}" ${product.stock === "unavailable" ? "disabled" : ""}>Adicionar ao carrinho <span aria-hidden="true">＋</span></button>
+        <a class="button button-quiet" data-modal-buy href="${productPurchaseHref(product, activeModalVariantIndex)}" target="_blank" rel="noreferrer">QUERO COMPRAR ESSE PRODUTO <span aria-hidden="true">↗</span></a>
         <button class="product-modal-continue" type="button" data-close-product-dialog>Voltar à loja</button>
       </div>
     </div>
@@ -386,6 +387,19 @@ function showToast() {
   toastTimer = window.setTimeout(() => { toast.hidden = true; }, 4200);
 }
 
+function addProductToCart(id, button) {
+  const product = products.find((item) => item.id === id);
+  if (!product || product.stock === "unavailable") return false;
+  cart.set(id, Math.min(99, (cart.get(id) || 0) + 1));
+  renderCart();
+  if (button) {
+    button.innerHTML = 'Adicionado <span aria-hidden="true">✓</span>';
+    button.classList.add("is-added");
+  }
+  showToast();
+  return true;
+}
+
 function renderShowcase() {
   const featuredIds = [
     "lip-gloss",
@@ -458,12 +472,7 @@ document.querySelector("#category-filters").addEventListener("click", (event) =>
 grid.addEventListener("click", (event) => {
   const button = event.target.closest("[data-add-to-cart]");
   if (!button || button.disabled) return;
-  const id = button.dataset.addToCart;
-  cart.set(id, Math.min(99, (cart.get(id) || 0) + 1));
-  renderCart();
-  button.innerHTML = 'Adicionado <span aria-hidden="true">✓</span>';
-  button.classList.add("is-added");
-  showToast();
+  if (!addProductToCart(button.dataset.addToCart, button)) return;
   window.setTimeout(() => {
     if (!button.isConnected) return;
     button.innerHTML = 'Adicionar ao carrinho <span aria-hidden="true">＋</span>';
@@ -488,6 +497,21 @@ document.addEventListener("keydown", (event) => {
 });
 
 productDialog.addEventListener("click", (event) => {
+  const addButton = event.target.closest("[data-modal-add-to-cart]");
+  if (addButton && addProductToCart(addButton.dataset.modalAddToCart)) {
+    productDialog.close();
+    activeCategory = "all";
+    search.value = "";
+    document.querySelectorAll("#category-filters [data-category]").forEach((item) => {
+      item.setAttribute("aria-pressed", String(item.dataset.category === "all"));
+    });
+    renderProducts("");
+    requestAnimationFrame(() => {
+      document.querySelector("#catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
+      search.focus({ preventScroll: true });
+    });
+    return;
+  }
   const variantButton = event.target.closest("[data-modal-variant]");
   if (variantButton) {
     updateModalVariant(Number(variantButton.dataset.modalVariant));
