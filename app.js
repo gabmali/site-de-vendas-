@@ -1,7 +1,6 @@
 // Catálogo Clarysse Makes. Imagens existentes e seus vínculos estão registrados em IMAGE_INVENTORY.md.
 // Valores armazenados em centavos para evitar erros de arredondamento.
 const products = [
-  { id: "lip-gloss", name: "Lip Gloss", detail: "Viva! · SOS Beijo · volume labial", category: "makeup", priceCents: 1200, image: "dccf3be0886ebff0.jpg", stock: "check" },
   { id: "lip-gloss-teddy", name: "Lip Gloss Teddy", detail: "Melu · 3 ml", category: "makeup", priceCents: 1200, image: "85d38dfc82278184.jpg", stock: "check" },
   { id: "esfoliante-vitamina-c", name: "Esfoliante Vitamina C", detail: "Derma Chem · 100 g", category: "skincare", priceCents: 1000, image: "0271d032cd8c1436.jpg", stock: "check" },
   { id: "perfume-capilar", name: "Perfume Capilar", detail: "Transcendent Pink e Ray Flower · 30 ml cada", category: "fragrance", priceCents: 1000, image: "perfume-capilar-pink.jpg", gallery: ["perfume-capilar-pink.jpg", "perfume-capilar-ray.jpg"], galleryLabels: ["Transcendent Pink", "Ray Flower"], stock: "check" },
@@ -15,7 +14,6 @@ const products = [
   { id: "hidratante-vaquinha", name: "Hidratante Vaquinha", detail: "Bell Corpus · 250 ml", category: "skincare", priceCents: 1500, image: "hidratante-vaquinha.jpg", imageFit: "contain", stock: "check" },
   { id: "creme-corporal-cereja", name: "Creme Corporal Cereja", detail: "Body Juice · extrato de cereja e ácido hialurônico · 100 g", category: "skincare", priceCents: 1500, image: "creme-corporal-cereja-individual.jpg", imageFit: "contain", stock: "check" },
   { id: "esfoliante-corporal", name: "Esfoliante Corporal", detail: "S.Hine's · Sunset Coral · 220 g", category: "skincare", priceCents: 1000, image: "esfoliante-corporal-sunset-coral.jpg", imageFit: "contain", stock: "check" },
-  { id: "body-splash-vaquinha", name: "Body Splash Vaquinha", detail: "Bell Corpus · 200 ml · unidade", category: "fragrance", priceCents: 1500, image: "body-splash-vaquinha.jpg", imageFit: "contain", stock: "check" },
   { id: "mousse-facial-manga-rosa", name: "Mousse Facial Manga Rosa", detail: "Pudim Super Poderes · extrato de manga rosa e água de coco · 150 ml", category: "skincare", priceCents: 1400, image: "22aa44565b6ac927.jpg", stock: "check" },
   { id: "lamina", name: "Kit Lâminas para Sobrancelhas", detail: "3 unidades · acessórios para sobrancelhas", category: "accessories", priceCents: 1000, image: "lamina-sobrancelha.jpg", stock: "check" },
   { id: "bronzer-choco-fun", name: "Bronzer Choco Fun", detail: "Fenzza · acabamento bronze · unidade", category: "makeup", priceCents: 1000, image: "25288545ae87c896.jpg", stock: "check" },
@@ -36,7 +34,6 @@ const products = [
 
 // Textos comerciais curtos, baseados no nome e nas características já cadastradas.
 const productDescriptions = {
-  "lip-gloss": "Realce seus lábios com brilho e efeito de volume. O Lip Gloss Viva! SOS Beijo completa sua make com um toque extra de destaque.",
   "lip-gloss-teddy": "Seu novo detalhe favorito para uma make delicada: um gloss prático de 3 ml, perfeito para levar com você e dar um acabamento luminoso aos lábios.",
   "esfoliante-vitamina-c": "Gel esfoliante facial com Vitamina C para incluir na sua rotina de cuidados com a pele. Embalagem de 100 g.",
   "perfume-capilar": "Leve seu perfume capilar favorito para a rotina: escolha entre Transcendent Pink e Ray Flower. Frascos de 30 ml, práticos para ter sempre por perto.",
@@ -50,7 +47,6 @@ const productDescriptions = {
   "hidratante-vaquinha": "Transforme o cuidado diário em um momento gostoso com o Hidratante Vaquinha. A embalagem de 250 ml é perfeita para deixar no seu cantinho de autocuidado.",
   "creme-corporal-cereja": "Um toque especial de cereja para o seu ritual de cuidado corporal. O Creme Body Juice vem em embalagem de 100 g para deixar seu momento de autocuidado ainda mais gostoso.",
   "esfoliante-corporal": "Um momento de esfoliação para deixar o cuidado corporal mais especial. Sunset Coral em pote de 220 g, para incluir na sua rotina de beleza.",
-  "body-splash-vaquinha": "Uma unidade de Body Splash Vaquinha com 200 ml e fragrância leve, doce, suave e envolvente para acompanhar sua rotina de perfumação.",
   "mousse-facial-manga-rosa": "Uma mousse facial com extrato de manga rosa e água de coco para dar um toque especial ao seu ritual de cuidados. Embalagem de 150 ml.",
   "lamina": "Kit com 3 lâminas para sobrancelhas, conforme a embalagem. Uma opção prática para compor seu nécessaire.",
   "bronzer-choco-fun": "Dê um toque bronzeado à sua make com o Bronzer Choco Fun. Valor de R$ 10,00 por unidade.",
@@ -402,7 +398,6 @@ function addProductToCart(id, button) {
 
 function renderShowcase() {
   const featuredIds = [
-    "lip-gloss",
     "perfume-capilar",
     "serum-rosa-mosqueta-max-love",
     "presilhas-flor",
@@ -413,7 +408,6 @@ function renderShowcase() {
   ];
   const featured = featuredIds.map((id) => products.find((product) => product.id === id)).filter((product) => product?.image && product.stock !== "unavailable");
   featured.splice(1, 0,
-    { id: "kit-vaquinha-corporal", target: "#kit-vaquinha-corporal", name: "Kit Vaquinha: Body Splash + Hidratante", priceCents: 3000, image: "kit-vaquinha-corporal.jpg" },
     { id: "kit-facial-vitamina-c", target: "#kit-facial-vitamina-c", name: "Kit Rotina Facial Vitamina C", priceCents: 4000, image: "kit-facial-vitamina-c.jpg", imageFit: "contain" },
     { id: "kit-cereja-corporal", target: "#kit-cereja-corporal", name: "Kit Cuidado Corporal Cereja", priceCents: 3000, image: "kit-cereja-corporal.jpg" },
   );

@@ -12,7 +12,7 @@ Loja virtual estática em HTML, CSS e JavaScript, publicada pelo Cloudflare Page
 - As categorias aceitas são `makeup`, `skincare`, `fragrance`, `accessories` e `kits`.
 - Confira `IMAGE_INVENTORY.md` antes de associar ou adicionar uma foto. Não apague, substitua ou renomeie fotos antigas sem confirmar.
 
-O catálogo contém os 26 produtos e preços informados, além da Água Micelar – Max Love por R$ 10,00. O Lip Gloss SOS Beijo e o Mousse Facial Manga Rosa (extrato de manga rosa e água de coco) foram vinculados aos produtos correspondentes. A foto original com quatro loções foi mantida intacta; quatro recortes derivados dela ilustram Strawberries & Champagne, Love Spell, Amber Romance e Bare Vanilla. Pure Seduction não aparece na foto recebida e continua com espaço reservado. As demais fotos ausentes também usam espaços reservados.
+O catálogo ativo contém 26 produtos, incluindo a Água Micelar – Max Love por R$ 10,00. O Lip Gloss SOS Beijo, o Kit Vaquinha corporal e o Body Splash Vaquinha estão temporariamente fora do catálogo; suas imagens foram preservadas para uma possível volta. O Mousse Facial Manga Rosa (extrato de manga rosa e água de coco) está vinculado ao produto correspondente. A foto original com quatro loções foi mantida intacta; quatro recortes derivados dela ilustram Strawberries & Champagne, Love Spell, Amber Romance e Bare Vanilla. Pure Seduction não aparece na foto recebida e continua com espaço reservado. As demais fotos ausentes também usam espaços reservados.
 
 ## Carrinho e pedidos
 

@@ -68,3 +68,5 @@ $15CB183E08FA059E211FD850ABA8D6F4C8381C982BDCEDCEEAC9AE0C73AC6F650` |
 | `body-splash-vaquinha-kit.jpg` | 295×1075 | Recorte do Body Splash Vaquinha recebido para o kit | `DCBA28EC4F1415F549343C9634C6861A4B44766C2A0C83D77D1FCA2CBB007663` |
 | `hidratante-vaquinha-kit.jpg` | 560×735 | Recorte do Hidratante Vaquinha recebido para o kit | `3D0F77D52EF9F46C695817A66B8A86932711DD81DA3A84101C9F85E85B709182` |
 
+- Em 27/11/2026, o Lip Gloss SOS Beijo, o Kit Vaquinha corporal e o Body Splash Vaquinha foram temporariamente retirados do catálogo publicado. As imagens e registros históricos foram preservados para possível retorno.
+
